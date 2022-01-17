@@ -1,0 +1,122 @@
+<?php
+/** @var Dimensions $block */
+
+use Chronopost\Chronorelais\Block\Adminhtml\Sales\Shipment\Dimensions;
+use Chronopost\Chronorelais\Helper\Data;
+
+$shippingMethod = $block->getData('shipping_method');
+$orderId = $block->getData('order_id');
+
+$helper = $this->helper(Data::class);
+$weightOfOrder = $helper->getWeightOfOrder($orderId, true);
+$chronoWeightUnit = $helper->getChronoWeightUnit($orderId);
+$weightUnit = $helper->getWeightUnit($orderId);
+$orderAdValorem = $helper->getOrderAdValoremById($orderId);
+?>
+
+<div class="admin__page-section-item" style="margin-top: 20px;">
+    <input type="hidden" value="<?= $shippingMethod; ?>" id="shipping_method_dimension">
+
+    <div class="admin__page-section-item-title">
+        <span><?= __('Contract:') ?></span>
+        <?= $block->getContractsHtml($orderId); ?>
+    </div>
+
+    <div class="admin__page-section-item-title">
+        <span><?= __('Number of packages:') ?></span>
+        <input value="1" id="nb_colis" data-orderid="<?= $orderId; ?>" data-inshipment=true
+               class="input-text input-chrono admin__control-text" name="nb_colis" />
+    </div>
+
+    <?php if ($shippingMethod === sprintf('%s_%s', Data::CHRONO_FRESH_CODE, Data::CHRONO_FRESH_CODE)) : ?>
+        <div class="admin__page-section-item-title">
+            <span><?= __('Expiration date:') ?></span>
+            <input id="expiration_date" data-orderid="<?= $orderId; ?>" data-inshipment=true
+                   class="input-text input-chrono expiration-date admin__control-text" name="expiration_date" readonly
+                   value="<?= $helper->getDefaultExpirationDate(); ?>"/>
+        </div>
+    <?php endif; ?>
+
+    <?php if ($orderAdValorem > 0): ?>
+        <div class="admin__page-section-item-title">
+            <span><?= __('Value to be insured:') ?></span>
+            <input value="<?= $orderAdValorem ?>" id="ad_valorem" data-orderid="<?= $orderId; ?>"
+                   data-inshipment=true class="input-text input-chrono admin__control-text" name="ad_valorem"/>
+        </div>
+        <div id="ad_volorem_message" class="message notice" style="display: none;">
+            <?= __('It is not possible to insure more than one package.'); ?>
+        </div>
+    <?php endif; ?>
+
+    <div class="admin__page-section-item-title">
+        <span><?= __('Weight and dimensions:') ?></span>
+    </div>
+
+    <div class="inputs-container">
+        <div id="error-inputs"></div>
+        <div>
+            <table cellspacing="0" class="data" id="dimensions-weight">
+                <colgroup>
+                    <col width="20" class="a-center">
+                    <col width="50">
+                    <col width="50">
+                    <col width="50">
+                    <col width="50">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th><span><?= __('Weight'); ?></span></th>
+                    <th><span><?= __('Width'); ?></span></th>
+                    <th><span><?= __('Height'); ?></span></th>
+                    <th><span><?= __('Length'); ?></span></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><input type="hidden" id="input_dimensions" name="dimensions" value="{}"></td>
+                </tr>
+                <tr class="dimensions-input-container">
+                    <td class="weight_input">
+                        <input value="<?= $weightOfOrder ?: 0 ?>" class="input-text input-chrono admin__control-text"
+                               name='weight_input' data-inshipment="true" data-orderid="<?= $orderId; ?>"
+                               data-position="1" data-shipping-method="<?= $shippingMethod ?>"/>
+                    </td>
+                    <td class="width_input">
+                        <input value="1" class="input-text input-chrono admin__control-text" name='width_input'
+                               data-inshipment="true" data-orderid="<?= $orderId; ?>" data-position="1"
+                               data-shipping-method="<?= $shippingMethod ?>"/>
+                    </td>
+                    <td class="height_input">
+                        <input value="1" class="input-text input-chrono admin__control-text" name="height_input"
+                               data-inshipment="true" data-orderid="<?= $orderId; ?>" data-position="1"
+                               data-shipping-method="<?= $shippingMethod ?>"/>
+                    </td>
+                    <td class="length_input">
+                        <input value="1" class="input-text input-chrono admin__control-text" name="length_input"
+                               data-inshipment="true" data-orderid="<?= $orderId; ?>" data-position="1"
+                               data-shipping-method="<?= $shippingMethod ?>"/>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <br/>
+            <p><?= __('Store: %1', $weightUnit); ?></p>
+            <p><?= __('Chronopost: %1', $chronoWeightUnit . 's'); ?></p>
+
+            <?php if ($chronoWeightUnit === 'g' || $weightUnit === 'lbs') : ?>
+                <p><?= __('The conversion is done automatically on generation'); ?></p>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Chronopost_Chronorelais/js/shipmentDimensions":{
+                "shippingmethod" = "<?= $shippingMethod ?>"
+            }
+        }
+    }
+</script>

@@ -1,0 +1,52 @@
+<script>
+    require([
+        'jquery',
+    ], function ($) {
+        'use strict';
+
+        $(document).ready(function () {
+            var body = $('body');
+
+            var isShipmentInterface = false;
+            if (body.hasClass('adminhtml-order_shipment-new')) {
+                isShipmentInterface = true;
+            }
+
+            var selector = "select[id^='contract-']";
+            if (isShipmentInterface) {
+                selector = "#chrono-contract";
+            }
+
+            body.on("change", selector, function () {
+                var contractId = $(this).val();
+
+                let fieldSelector = "#chrono-offers";
+                if (!isShipmentInterface) {
+                    var entity_id = $(this).data('entityid');
+                    fieldSelector = "#offers-" + entity_id;
+                }
+
+                if ($(fieldSelector).length) {
+                    var params = {
+                        contract_id: contractId,
+                        form_key: window.FORM_KEY
+                    };
+
+                    $.ajax({
+                        url: '<?= $this->getUrl('chronorelais/ajax/updateOffers'); ?>',
+                        method: 'GET',
+                        data: params,
+                        dataType: 'json',
+                        showLoader: true
+                    }).success(function (data) {
+                        $(fieldSelector).find('option').remove().end().append(data);
+
+                        if (!isShipmentInterface) {
+                            $(fieldSelector).trigger('change');
+                        }
+                    });
+                }
+            });
+        });
+    });
+</script>

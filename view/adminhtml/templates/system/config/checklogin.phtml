@@ -1,0 +1,47 @@
+<?php
+/** @var Checklogin $block */
+
+use Chronopost\Chronorelais\Block\Adminhtml\System\Config\Checklogin;
+?>
+
+<script>
+    require([
+        'jquery'
+    ], function ($) {
+        var checklogin_button = $('#checklogin_button');
+
+        checklogin_button.click(function () {
+            $('#checklogin_message').html("");
+
+            var params = {
+                'form_key': checklogin_button.parents('form').find('input[name=form_key]').val(),
+                'account_number': $("#chronorelais_shipping_account_number").val(),
+                'account_pass': $("#chronorelais_shipping_account_pass").val()
+            };
+
+            $.ajax({
+                url: "<?= $block->getAjaxUrl() ?>",
+                method: "POST",
+                data: params
+            }).done(function (response) {
+                response = response.return;
+                var msg = '<strong style="color:#007700;"><?= __('The contract is valid.') ?></strong>';
+                if (typeof response.errorCode == "undefined") {
+                    msg = '<strong><?= __('The webservice is temporarily inaccessible. Please try again later.') ?></strong>';
+                } else if (response.errorCode !== 0) {
+                    if (typeof response.message != "undefined") {
+                        msg = '<strong style="color:#FF0000;">' + response.message + '</strong>';
+                    } else {
+                        msg = '<strong style="color:#FF0000;"><?= __('The contract is invalid.') ?></strong>'
+                    }
+                }
+                $('#checklogin_message').html(msg);
+            }).fail(function () {
+                $('#checklogin_message').html("<?= __('An error has occurred.') ?>");
+            });
+        });
+    });
+</script>
+
+<?= $block->getButtonHtml() ?>
+<div id="checklogin_message"></div>

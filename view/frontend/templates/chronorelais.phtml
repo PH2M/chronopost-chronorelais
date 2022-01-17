@@ -1,0 +1,45 @@
+<?php
+/** @var Chronorelais $block */
+
+use Chronopost\Chronorelais\Block\Chronorelais;
+?>
+
+<?php if (count($block->getRelaypoints()) > 0): ?>
+    <?php $postcode = $block->getPostcode(); ?>
+    <tr id="chronomap_container_<?php echo $block->getMethodCode() ?>" class="chronomap_container">
+        <td colspan="4">
+            <div class="chronorelaismap">
+                <?php if ($block->getCanChangePostcode()): ?>
+                    <div class="mappostalcode">
+                        <input type="text" name="mappostalcode" id="mappostalcode" value="<?php echo $postcode ?>"
+                               class="input-text"
+                               onkeydown="if (event.keyCode == 13) shippingMethodChrono.changePostalCode('<?php echo $block->getUrl('chronorelais/relais/changePostalCode') ?>')"/>
+                        <button id="map-postcode-btn" class="button" type="button">
+                            <span><span><?php echo __('Update postcode') ?></span></span>
+                        </button>
+                        <span style="display: none;" class="please-wait" id="postalcode-please-wait"><img
+                                class="v-middle" title="<?php echo __('Loading map...') ?>"
+                                alt="<?php echo __('Loading map...') ?>"
+                                src="<?php echo $block->getViewFileUrl('Chronopost_Chronorelais::images/ajax-loader.gif') ?>">
+                            <?php echo __('Loading map...') ?>
+                        </span>
+                    </div>
+                <?php endif; ?>
+
+                <?php if ($block->getCanShowMap()): ?>
+                    <div id="chronomap_<?php echo $block->getMethodCode() ?>" class="chronomap"></div>
+                <?php endif; ?>
+            </div>
+            <p style="margin: 0;">
+                <?php echo __('Please select one of the %1 Pickup Points affich&eacute;s below to which the parcel will be delivered.',
+                    count($block->getRelaypoints())) ?>
+            </p>
+            <dl class="sp-methods-chronorelais">
+                <dt><?php echo __('The nearest pick-up points') ?></dt>
+                <dd>
+                    <ul id="relaypoint_container_<?php echo $block->getMethodCode() ?>"></ul>
+                </dd>
+            </dl>
+        </td>
+    </tr>
+<?php endif; ?>

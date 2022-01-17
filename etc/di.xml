@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="chronopost_sales_order_grid_data_source" xsi:type="string">Chronopost\Chronorelais\Model\ResourceModel\Order\Grid\Collection</item>
+                <item name="chronopost_sales_order_bordereau_grid_data_source" xsi:type="string">Chronopost\Chronorelais\Model\ResourceModel\Order\Grid\Bordereau\Collection</item>
+                <item name="chronopost_sales_order_export_grid_data_source" xsi:type="string">Chronopost\Chronorelais\Model\ResourceModel\Order\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Chronopost\Chronorelais\Model\ResourceModel\Order\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">sales_order_grid</argument>
+            <argument name="eventPrefix" xsi:type="string">chronopost_chronorelais_sales_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">chronopost_chronorelais_sales_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Magento\Sales\Model\ResourceModel\Order</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Config\Model\Config">
+        <plugin name="admin_system_config_save_plugin" type="Chronopost\Chronorelais\Plugin\ConfigPlugin" sortOrder="1"/>
+    </type>
+    <type name="Magento\Checkout\Model\ShippingInformationManagement">
+        <plugin name="ShippingInformationManagementPlugin" type="Chronopost\Chronorelais\Plugin\ShippingInformationManagement" sortOrder="10" disabled="false"/>
+    </type>
+    <type name="Magento\Checkout\Model\PaymentInformationManagement">
+        <plugin name="PaymentInformationManagementPlugin" type="Chronopost\Chronorelais\Plugin\PaymentInformationManagement" sortOrder="10" disabled="false"/>
+    </type>
+</config>

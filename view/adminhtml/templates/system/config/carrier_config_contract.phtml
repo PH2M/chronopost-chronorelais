@@ -1,0 +1,93 @@
+<?php use Chronopost\Chronorelais\Helper\Data; ?>
+
+<script>
+    require([
+        'jquery',
+    ], function ($) {
+        $(document).ready(function () {
+            var carriers_chrono = [
+                "<?= Data::CHRONO_CODE; ?>",
+                "<?= Data::CHRONO_EXPRESS_CODE; ?>",
+                "<?= Data::CHRONO_RELAIS_CODE; ?>",
+                "<?= Data::CHRONO_10_CODE; ?>",
+                "<?= Data::CHRONO_18_CODE; ?>",
+                "<?= Data::CHRONO_CLASSIC_CODE; ?>",
+                "<?= Data::CHRONO_RELAIS_EUROPE_CODE; ?>",
+                "<?= Data::CHRONO_SAMEDAY_CODE; ?>",
+                "<?= Data::CHRONO_RELAIS_DOM_CODE; ?>",
+                "<?= Data::CHRONO_SRDV_CODE; ?>",
+                "<?= Data::CHRONO_FRESH_CODE; ?>"
+            ];
+
+            carriers_chrono.forEach(function (carrier) {
+                var offer = $('#carriers_' + carrier + '_offers');
+                var contract = $('#carriers_' + carrier + '_contracts');
+                var options = $('#carriers_' + carrier + '_contracts option');
+                var selectActive = $('#carriers_' + carrier + '_active');
+                if (!options || !contract) {
+                    return false;
+                }
+
+                if (options.length === 0) {
+                    selectActive.value = 0;
+                    selectActive.hide();
+                }
+
+                if (contract) {
+                    contract.on("change", function (e) {
+                        e.stopPropagation();
+
+                        var offer = null;
+                        if ($('#carriers_' + carrier + '_offers').length) {
+                            offer = $('#carriers_' + carrier + '_offers option:selected').val();
+                        }
+
+                        checkConfig(selectActive, carrier, e.target.value, offer);
+                    });
+                }
+
+                if (offer) {
+                    offer.on("change", function (e) {
+                        e.stopPropagation();
+                        contract = $('#carriers_' + carrier + '_contracts option:selected').val();
+                        checkConfig(selectActive, carrier, contract, e.target.value);
+                    });
+                }
+            });
+        });
+
+        function checkConfig(selectActive, carrier, contractId, offer) {
+            var params = {
+                form_key: window.FORM_KEY,
+                shippingMethod: carrier,
+                contractId: contractId,
+                offer: offer
+            };
+
+            $.ajax({
+                url: '<?= $this->getUrl('chronorelais/ajax/checkCarrierConfigContract'); ?>',
+                method: 'GET',
+                data: params,
+                dataType: 'json',
+                showLoader: true
+            }).success(function (data) {
+                $('.chrono-message').remove();
+
+                if (data === "not allowed") {
+                    selectActive.val('0').prop('selected', true).attr('disabled', 'disabled');
+                    addMessage(selectActive.parent(), carrier);
+                } else {
+                    selectActive.removeProp("disabled");
+                }
+            });
+        }
+
+        function addMessage(container, carrier) {
+            var div = document.createElement('div');
+            div.setAttribute("id", "message-" + carrier);
+            div.innerHTML = "<div class='chrono-message'><strong style=\"color:#FF0000;\">" +
+                "<?= __('The offer is not available with the specified contract.'); ?></strong></div>";
+            container.append(div);
+        }
+    })
+</script>

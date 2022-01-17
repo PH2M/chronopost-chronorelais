@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Chronopost_Chronorelais::sales" title="Chronopost" module="Chronopost_Chronorelais" sortOrder="50" parent="Magento_Sales::sales" resource="Chronopost_Chronorelais::sales" />
+        <add id="Chronopost_Chronorelais::sales_impression" title="Print labels" module="Chronopost_Chronorelais" sortOrder="0" parent="Chronopost_Chronorelais::sales" action="chronorelais/sales/impression" resource="Chronopost_Chronorelais::sales"/>
+        <add id="Chronopost_Chronorelais::sales_bordereau" title="End of day slip" module="Chronopost_Chronorelais" sortOrder="1" parent="Chronopost_Chronorelais::sales" action="chronorelais/sales/bordereau" resource="Chronopost_Chronorelais::sales"/>
+        <add id="Chronopost_Chronorelais::sales_export" title="Export" module="Chronopost_Chronorelais" sortOrder="2" parent="Chronopost_Chronorelais::sales" action="chronorelais/sales/export" resource="Chronopost_Chronorelais::sales"/>
+        <add id="Chronopost_Chronorelais::sales_import" title="Import" module="Chronopost_Chronorelais" sortOrder="3" parent="Chronopost_Chronorelais::sales" action="chronorelais/sales/import" resource="Chronopost_Chronorelais::sales"/>
+    </menu>
+</config>

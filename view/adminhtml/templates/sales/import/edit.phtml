@@ -1,0 +1,34 @@
+<form action="<?php /* @escapeNotVerified */ echo $block->getSaveUrl() ?>" method="post" id="sales_import_edit_form"
+      enctype="multipart/form-data">
+    <?php echo $block->getBlockHtml('formkey') ?>
+
+    <div class="no-display">
+        <input type="hidden" id="change_flag_element" name="_change_type_flag" value=""/>
+        <input type="hidden" id="save_as_flag" name="_save_as_flag" value="<?php /* @escapeNotVerified */ echo $block->getSaveAsFlag() ?>"/>
+    </div>
+    <?php /* @escapeNotVerified */ echo $block->getForm() ?>
+</form>
+
+<script>
+    require([
+        'jquery',
+        'mage/mage',
+        'prototype'
+    ], function ($) {
+        //<![CDATA[
+        $('#sales_import_edit_form').mage('form').mage('validation');
+
+        $(document).on('keyup', '#import_chronorelais_column_parcel', function () {
+            keyUpFunction(jQuery(this));
+        });
+
+        $(document).on('keyup', '#import_chronorelais_column_order', function () {
+            keyUpFunction(jQuery(this));
+        });
+
+        function keyUpFunction(input) {
+            jQuery(input).val(jQuery(input).val().replace(/\D/g, ""));
+        }
+        //]]>
+    });
+</script>

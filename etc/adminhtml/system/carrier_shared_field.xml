@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+        <label>Active</label>
+        <frontend_model>Chronopost\Chronorelais\Block\Adminhtml\System\Config\Enabled</frontend_model>
+        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+        <comment>The field is deactivated when the offer does not correspond to the type of customer or the selected contract.</comment>
+    </field>
+
+    <field id="title" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Title</label>
+    </field>
+
+    <field id="contracts" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+        <label>Default Contract</label>
+        <source_model>Chronopost\Chronorelais\Model\Config\Source\Contract</source_model>
+    </field>
+
+    <field id="name" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Delivery option</label>
+    </field>
+
+    <field id="weight_limit" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Weight limit</label>
+        <comment>In Kg</comment>
+    </field>
+
+    <field id="config" translate="label comment" type="textarea" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Weight/price list</label>
+        <comment>
+            <![CDATA[
+            [{"fees": "{2.00:17.56, 10.00:24.28, 20.00:32.68, 30.00:41.08}"}]
+            OR
+            [{ "destination": "FR;MC",
+               "fees": "{2.00:17.56, 10.00:24.28, 20.00:32.68, 30.00:41.08}"
+            }]
+            OR
+            [{ "destination": "FR-(92*, 62400);MC",
+               "fees": "{2.00:17.56, 10.00:24.28, 20.00:32.68, 30.00:41.08}"}]
+            ]]>
+        </comment>
+    </field>
+
+    <field id="quickcost" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Quickcost</label>
+        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+    </field>
+
+    <field id="quickcost_marge" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Value to be added to quickcost</label>
+    </field>
+
+    <field id="quickcost_marge_type" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Type of value to be added</label>
+        <source_model>Chronopost\Chronorelais\Model\Config\Source\QuickcostMargeType</source_model>
+    </field>
+
+    <field id="quickcost_url" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Quickcost URL</label>
+    </field>
+
+    <field id="free_shipping_enable" translate="label" type="select" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Free delivery depending on the amount</label>
+        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+    </field>
+
+    <field id="free_shipping_subtotal" translate="label" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Minimum amount to qualify for free delivery</label>
+    </field>
+
+    <field id="application_fee" translate="label" type="text" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Handling fee</label>
+        <frontend_class>validate-number</frontend_class>
+    </field>
+
+    <field id="handling_fee" translate="label" type="text" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Processing fee</label>
+        <frontend_class>validate-number</frontend_class>
+    </field>
+
+    <field id="logo_url" translate="label" type="text" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Logo URL</label>
+        <comment>Submit your image via FTP in the folder pub/media/chronorelais (create this folder if it does not exist)</comment>
+    </field>
+
+    <field id="debug" translate="label" type="select" sortOrder="160" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Debug</label>
+        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+    </field>
+
+    <field id="sallowspecific" translate="label" type="select" sortOrder="170" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+        <label>Ship to Applicable Countries</label>
+        <frontend_class>shipping-applicable-country</frontend_class>
+        <source_model>Magento\Shipping\Model\Config\Source\Allspecificcountries</source_model>
+    </field>
+
+    <field id="specificcountry" translate="label" type="multiselect" sortOrder="180" showInDefault="1" showInWebsite="1" showInStore="0">
+        <label>Ship to Specific Countries</label>
+        <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+        <can_be_empty>1</can_be_empty>
+        <comment>The destination countries are determined from your contract but you can exclude them if you wish.</comment>
+    </field>
+
+    <field id="sort_order" translate="label" type="text" sortOrder="190" showInDefault="1" showInWebsite="1" showInStore="0">
+        <label>Sort Order</label>
+    </field>
+</include>

@@ -1,0 +1,401 @@
+<?php
+/** @var RdvConfig $block */
+
+use Chronopost\Chronorelais\Block\Adminhtml\System\Config\RdvConfig;
+
+$_element = $block->getElement();
+?>
+
+<!-- Template JS config -->
+<script id="srdv_template_config" type="text/x-magento-template">
+    <?php $jours = [
+        __('Monday'),
+        __('Tuesday'),
+        __('Wednesday'),
+        __('Thursday'),
+        __('Friday'),
+        __('Saturday'),
+        __('Sunday')
+    ]; ?>
+
+    <tr id="row_<?= $_element->getHtmlId() ?>_dateRemiseColis" class="rdv_config">
+        <td class="label">
+            <label><?= __('Parcel delivery date') ?></label>
+        </td>
+        <td class="value" colspan="1">
+            <table>
+                <tr>
+                    <td>
+                        <?= __("Order's day") ?> +
+                        <select name="dateRemiseColis_nbJour">
+                            <?php for ($i = 0; $i <= 30; $i++): ?>
+                                <option value="<?= $i ?>"><?= $i ?></option>
+                            <?php endfor; ?>
+                        </select> <?= __('day') ?>(s)
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"><strong><?= __('OR') ?></strong></td>
+                </tr>
+                <tr>
+                    <td>
+                        <?= __('day') ?>
+                        <select name="dateRemiseColis_jour">
+                            <?php for ($i = 0; $i < count($jours); $i++): ?>
+                                <option value="<?= ($i + 1) ?>"><?= $jours[$i] ?></option>
+                            <?php endfor; ?>
+                        </select>
+                        <?= __('Hour') ?>
+                        <select name="dateRemiseColis_heures">';
+                            <?php for ($i = 0; $i <= 24; $i++): ?>
+                                <option value="<?= $i ?>"><?= $i ?></option>
+                            <?php endfor; ?>
+                        </select>
+                        :
+                        <select name="dateRemiseColis_minutes">
+                            <?php for ($i = 0; $i <= 59; $i++): ?>
+                                <option value="<?= $i ?>"><?= $i ?></option>
+                            <?php endfor; ?>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <p class="note"><?= __('Date from which the Appointment Option Seminar will be calculated') ?></p>
+        </td>
+    </tr>
+
+    <tr id="row_<?= $_element->getHtmlId() ?>_creneaux" class="rdv_config">
+        <td class="label">
+            <label><?= __('Time slot closed') ?></label>
+        </td>
+        <td class="value">
+            <a href="javascript:;" id="add_creneau" class="add_creneau"><?= __("Add a time slot") ?></a>
+        </td>
+        <td></td>
+    </tr>
+
+    <tr id="row_<?= $_element->getHtmlId() ?>_niveauTarifaire_labels" class="rdv_config">
+        <td class="label">
+            <label><?= __('Tariff level') ?></label>
+        </td>
+        <td class="value" colspan="1">
+            <table width="100%">
+                <tr>
+                    <?php for ($i = 1; $i <= 4; $i++): ?>
+                        <td width="25%">
+                            <?= __('Appointment') ?><?= $i ?>
+                        </td>
+                    <?php endfor; ?>
+                </tr>
+            </table>
+        </td>
+        <td></td>
+    </tr>
+
+    <tr id="row_<?= $_element->getHtmlId() ?>_niveauTarifaire_status" class="rdv_config">
+        <td class="label">
+            <label>&nbsp;</label>
+        </td>
+        <td class="value" colspan="1">
+            <table width="100%">
+                <tr>
+                    <?php for ($i = 1; $i <= 4; $i++): ?>
+                        <td width="25%">
+                            <select name="N<?= $i ?>_status">
+                                <option value="1"><?= __('Open') ?></option>
+                                <option value="0"><?= __('Closed') ?></option>
+                            </select>
+                        </td>
+                    <?php endfor; ?>
+                </tr>
+            </table>
+        </td>
+        <td></td>
+    </tr>
+
+    <tr id="row_<?= $_element->getHtmlId() ?>_niveauTarifaire_price" class="rdv_config">
+        <td class="label">
+            <label>&nbsp;</label>
+        </td>
+        <td class="value" colspan="1">
+            <table width="100%">
+                <tr>
+                    <?php for ($i = 1; $i <= 4; $i++): ?>
+                        <td width="25%">
+                            <input type="text" name="N<?= $i ?>_price"
+                                   value="<%- data.N<?= $i ?>_price %>" class="required-entry validate-number">
+                        </td>
+                    <?php endfor; ?>
+                </tr>
+            </table>
+        </td>
+        <td></td>
+    </tr>
+
+    <tr id="row_<?= $_element->getHtmlId() ?>_niveauTarifaire_show" class="rdv_config">
+        <td class="label">
+            <label><?= __('Show prices') ?></label>
+        </td>
+        <td class="value">
+            <select name="niveauTarifaire_show">
+                <option value="1"><?= __('Yes') ?></option>
+                <option value="0"><?= __('No') ?></option>
+            </select>
+        </td>
+        <td></td>
+    </tr>
+</script>
+
+<!-- Template JS créneaux -->
+<script id="srdv_template_creneaux" type="text/x-magento-template">
+    var currentCreneauxIndice = <%- data.indice %>;
+    <tr class="row_<%- data.idField %>_creneaux rdv_config" id="row_<%- data.idField %>_creneaux_<%- data.indice %>">
+        <td class="label">
+            <label>&nbsp;</label>
+        </td>
+        <td class="value">
+            <table>
+                <tr>
+                    <td>
+                        <?= __('From') ?>
+                        <select name="creneaux_debut_jour" class="creneaux_<%- data.indice %>">
+                            <?php for ($i = 0; $i < count($jours); $i++): ?>
+                                <option value="<?= ($i + 1) ?>"><?= $jours[$i] ?></option>
+                            <?php endfor; ?>
+                        </select>
+                        <?= __('Hour') ?>
+                        <select name="creneaux_debut_heures" class="creneaux_<%- data.indice %>">
+                            <?php for ($i = 0; $i <= 24; $i++): ?>
+                                <option value="<?= $i ?>"><?= $i ?></option>
+                            <?php endfor; ?>
+                        </select>
+                        :
+                        <select name="creneaux_debut_minutes" class="creneaux_<%- data.indice %>">
+                            <?php for ($i = 0; $i <= 59; $i++): ?>
+                                <option value="<?= $i ?>"><?= $i ?></option>
+                            <?php endfor; ?>
+                        </select>
+                    </td>
+                    <td rowspan="2" class="del_creneau_cell">
+                        <a href="javascript:" class="del_creneau"
+                           data-indicecreneaux="<%- data.indice %>"><span><?= __('Remove appointment') ?></span></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <?= __('To') ?>
+                        <select name="creneaux_fin_jour" class="creneaux_<%- data.indice %>">
+                            <?php for ($i = 0; $i < count($jours); $i++): ?>
+                                <option value="<?= ($i + 1) ?>"><?= $jours[$i] ?></option>
+                            <?php endfor; ?>
+                        </select>
+                        <?= __('Hour') ?>
+                        <select name="creneaux_fin_heures" class="creneaux_<%- data.indice %>">
+                            <?php for ($i = 0; $i <= 24; $i++): ?>
+                                <option value="<?= $i ?>"><?= $i ?></option>
+                            <?php endfor; ?>
+                        </select>
+                        :
+                        <select name="creneaux_fin_minutes" class="creneaux_<%- data.indice %>">
+                            <?php for ($i = 0; $i <= 59; $i++): ?>
+                                <option value="<?= $i ?>"><?= $i ?></option>
+                            <?php endfor; ?>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+</script>
+
+<script>
+    require([
+        'jquery',
+        'mage/template'
+    ], function ($, mageTemplate) {
+
+        var indiceCreneaux = 0;
+        var idField = "<?= $_element->getHtmlId() ?>";
+        var parentRow = $("#row_" + idField);
+
+        /* on masque la ligne avec le champ text. Celui-ci est géré en js (json) */
+        parentRow.hide();
+
+        var elementValue = {};
+        <?php if ($_element->getValue()): ?>
+        elementValue = <?= $_element->getValue() ?>;
+        <?php endif; ?>
+
+        var templateConfigHtml = mageTemplate('#srdv_template_config');
+        var tmpl = templateConfigHtml({
+            data: elementValue
+        });
+        parentRow.after(tmpl);
+
+        /* préchargement des données */
+        if (elementValue) {
+
+            var selectedOption;
+
+            /* date de remise colis */
+            if (typeof elementValue.dateRemiseColis_nbJour != 'undefined') {
+                selectedOption = $('#row_' + idField + '_dateRemiseColis select[name="dateRemiseColis_nbJour"] option[value="' + elementValue.dateRemiseColis_nbJour + '"]');
+                if (selectedOption.length) {
+                    selectedOption.prop("selected", true);
+                }
+            }
+            if (typeof elementValue.dateRemiseColis_jour != 'undefined') {
+                selectedOption = $('#row_' + idField + '_dateRemiseColis select[name="dateRemiseColis_jour"] option[value="' + elementValue.dateRemiseColis_jour + '"]');
+                if (selectedOption.length) {
+                    selectedOption.prop("selected", true);
+                }
+            }
+            if (typeof elementValue.dateRemiseColis_heures != 'undefined') {
+                selectedOption = $('#row_' + idField + '_dateRemiseColis select[name="dateRemiseColis_heures"] option[value="' + elementValue.dateRemiseColis_heures + '"]');
+                if (selectedOption.length) {
+                    selectedOption.prop("selected", true);
+                }
+            }
+            if (typeof elementValue.dateRemiseColis_minutes != 'undefined') {
+                selectedOption = $('#row_' + idField + '_dateRemiseColis select[name="dateRemiseColis_minutes"] option[value="' + elementValue.dateRemiseColis_minutes + '"]');
+                if (selectedOption.length) {
+                    selectedOption.prop("selected", true);
+                }
+            }
+
+            /* creneaux */
+            if (elementValue['creneaux']) {
+                for (var key in elementValue['creneaux']) {
+                    indiceCreneaux = key;
+                    var data = elementValue['creneaux'][key];
+                    data['idField'] = idField;
+                    data['indice'] = indiceCreneaux;
+                    addCreneaux(data);
+                }
+            }
+
+            /* Niveau tarifaire : preselection */
+            for (i = 1; i <= 4; i++) {
+                if (typeof elementValue['N' + i + '_status'] != 'undefined') {
+                    selectedOption = $('#row_' + idField + '_niveauTarifaire_status select[name="N' + i + '_status"] option[value="' + elementValue['N' + i + '_status'] + '"]');
+                    if (selectedOption.length) {
+                        selectedOption.prop("selected", true);
+                    }
+                }
+            }
+            if (typeof elementValue.niveauTarifaire_show != 'undefined') {
+                selectedOption = $('#row_' + idField + '_niveauTarifaire_show select[name="niveauTarifaire_show"] option[value="' + elementValue.niveauTarifaire_show + '"]');
+                if (selectedOption.length) {
+                    selectedOption.prop("selected", true);
+                }
+            }
+        }
+
+        /** EVENTS **/
+
+        /* Add creneaux */
+        $('#add_creneau').click(function () {
+            addCreneaux({
+                idField: idField,
+                indice: indiceCreneaux
+            })
+        });
+
+        /* Delete creneaux */
+        $('body').on("click", ".del_creneau", function () {
+            removeCreneaux($(this).data("indicecreneaux"));
+        });
+
+        /* Update creneaux */
+        $('body').on("change", ".rdv_config select", function () {
+            updateCreneaux($(this));
+        });
+        $('body').on("blur", ".rdv_config input", function () {
+            updateCreneaux($(this));
+        });
+
+        /* Ajout creneaux */
+        function addCreneaux(data) {
+
+            /* update object elementValue */
+            if (typeof elementValue['creneaux'] == 'undefined') {
+                elementValue['creneaux'] = {};
+            }
+            if (typeof elementValue['creneaux'][data.indice] == 'undefined') { /* nouveau creneaux : initilaisation */
+                elementValue['creneaux'][data.indice] = {};
+                elementValue['creneaux'][data.indice]['creneaux_debut_jour'] = "1";
+                elementValue['creneaux'][data.indice]['creneaux_debut_heures'] = "0";
+                elementValue['creneaux'][data.indice]['creneaux_debut_minutes'] = "0";
+                elementValue['creneaux'][data.indice]['creneaux_fin_jour'] = "1";
+                elementValue['creneaux'][data.indice]['creneaux_fin_heures'] = "0";
+                elementValue['creneaux'][data.indice]['creneaux_fin_minutes'] = "0";
+            }
+            $("#" + idField).val(JSON.stringify(elementValue));
+
+            /* Add row html */
+            var templateCreneauxHtml = mageTemplate('#srdv_template_creneaux');
+            var tmpl = templateCreneauxHtml({
+                data: data
+            });
+            $('#row_' + idField + '_niveauTarifaire_labels').before(tmpl);
+            indiceCreneaux++;
+
+            /* preselection des dropdown */
+            if (typeof data['creneaux_debut_jour'] != "undefined") {
+                $('#row_' + data.idField + '_creneaux_' + data.indice).find('select[name=creneaux_debut_jour] option[value=' + data['creneaux_debut_jour'] + ']').prop("selected", true);
+            }
+
+            if (typeof data['creneaux_debut_heures'] != "undefined") {
+                $('#row_' + data.idField + '_creneaux_' + data.indice).find('select[name=creneaux_debut_heures] option[value=' + data['creneaux_debut_heures'] + ']').prop("selected", true);
+            }
+
+            if (typeof data['creneaux_debut_minutes'] != "undefined") {
+                $('#row_' + data.idField + '_creneaux_' + data.indice).find('select[name=creneaux_debut_minutes] option[value=' + data['creneaux_debut_minutes'] + ']').prop("selected", true);
+            }
+
+            if (typeof data['creneaux_fin_jour'] != "undefined") {
+                $('#row_' + data.idField + '_creneaux_' + data.indice).find('select[name=creneaux_fin_jour] option[value=' + data['creneaux_fin_jour'] + ']').prop("selected", true);
+            }
+
+            if (typeof data['creneaux_fin_heures'] != "undefined") {
+                $('#row_' + data.idField + '_creneaux_' + data.indice).find('select[name=creneaux_fin_heures] option[value=' + data['creneaux_fin_heures'] + ']').prop("selected", true);
+            }
+
+            if (typeof data['creneaux_fin_minutes'] != "undefined") {
+                $('#row_' + data.idField + '_creneaux_' + data.indice).find('select[name=creneaux_fin_minutes] option[value=' + data['creneaux_fin_minutes'] + ']').prop("selected", true);
+            }
+        }
+
+        /* Remove creneaux */
+        function removeCreneaux(index) {
+            var rowCreneaux = $("#row_" + idField + "_creneaux_" + index);
+            if (rowCreneaux.length) {
+                /* remove element in object */
+                if (typeof elementValue['creneaux'] != 'undefined' && typeof elementValue['creneaux'][index] != 'undefined') {
+                    delete elementValue['creneaux'][index];
+                    $("#" + idField).val(JSON.stringify(elementValue));
+                }
+
+                /* remove row html */
+                rowCreneaux.remove();
+            }
+        }
+
+        /* Update creneaux */
+        function updateCreneaux(element) {
+            var elementName = element.attr('name');
+            if (elementName.indexOf('creneaux') != -1) {
+                // get indice creneaux
+                var indice = element.attr('class').replace('creneaux_', '');
+                if (typeof elementValue['creneaux'] == 'undefined' || typeof elementValue['creneaux'][indice] == 'undefined') {
+                    return;
+                }
+                elementValue['creneaux'][indice][elementName] = element.val();
+            } else {
+                elementValue[elementName] = element.val();
+            }
+            $("#" + idField).val(JSON.stringify(elementValue));
+        }
+    });
+</script>

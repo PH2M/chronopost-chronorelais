@@ -1,0 +1,9 @@
+<?php
+/** @var WeightConfig $block */
+
+use Chronopost\Chronorelais\Block\Adminhtml\System\Config\WeightConfig;
+?>
+
+<script>
+    var CHRONO_WEIGHT_COEFF = '<?= $block->getWeightCoef(); ?>';
+</script>

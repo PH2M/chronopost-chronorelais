@@ -1,0 +1,365 @@
+"It is not yet possible to use this service for your order. We are working to make this new service available in other cities.","Il n'est pas encore possible d'utiliser ce service pour votre commande, nous travaillons en ce moment pour permettre à de nouvelles villes de bénéficier de ce nouveau service.",module,Chronopost_Chronorelais
+"The pick-up point does not exist.","Le point relais n'existe pas.",module,Chronopost_Chronorelais
+"There is no pick-up for this address","Pas de point relais disponible pour cette adresse",module,Chronopost_Chronorelais
+"Please enter your account number and password","Veuillez saisir votre numéro de compte et mot de passe",module,Chronopost_Chronorelais
+"Please enter the addresses below","Veuillez renseigner les adresses ci-dessous",module,Chronopost_Chronorelais
+"Print labels","Impression des étiquettes",module,Chronopost_Chronorelais
+"Import a list of parcel numbers","Importer une liste de numéros de colis",module,Chronopost_Chronorelais
+"Export to ChronoShip Station","Exporter vers ChronoShip Station",module,Chronopost_Chronorelais
+"End of day slip","Bordereau de fin de journée",module,Chronopost_Chronorelais
+"Hello, <br />You will soon be using Chronopost to send an item. The person who sent you this email has already prepared the waybill that you will use. Once it has been printed, put the waybill into an adhesive pouch and affix it to your shipment. Make sure the barcode is clearly visible.<br />Kind regards,","Bonjour, <br />Vous allez bientôt effectuer un envoi Chronopost. La personne qui vous a adressé ce mail a déjà préparé la lettre de transport que vous utiliserez. Après impression, apposez la lettre de transport dans une pochette plastique adhésive et collez la sur votre envoi. Attention le code à barres doit être bien apparent.<br />Cordialement,",module,Chronopost_Chronorelais
+"The return label has been sent to the customer.","L'étiquette de retour a bien été envoyée au client.",module,Chronopost_Chronorelais
+"Please install Ghostscript on your server for bulk printing","Veuillez installer Ghostscript sur voter serveur pour pouvoir imprimer en masse",module,Chronopost_Chronorelais
+"Delivery option not Chronopost for order %1","Mode de livraison non chronopost pour la commande %1",module,Chronopost_Chronorelais
+"This order contains several shipments, click the link to obtain the labels","Cette commande contient plusieurs expéditions, cliquez sur chaque lien pour obtenir les étiquettes",module,Chronopost_Chronorelais
+"A system error has occurred","Une erreur système est survenue",module,Chronopost_Chronorelais
+"The parcel’s parameters do not fall within the scope of the contract passed or it has not yet been registered in the Chronopost tracking system","Le colis n'appartient pas au contrat passé en paramètre ou n'a pas encore été enregistré dans le système de tracking Chronopost"
+"The parcel cannot be cancelled because it has been dispatched by Chronopost","Le colis ne peut être pas annulé car il a été pris en charge par Chronopost",module,Chronopost_Chronorelais
+"An error occurred while deleting label %1: %2.","Erreur lors de la suppression de l'étiquette %1 : %2.",module,Chronopost_Chronorelais
+"Sorry, an error occurred while deleting label %1. Please contact Chronopost or try again later","Désolé, une erreur est survenue lors de la suppression de l'étiquette %1. Merci de contacter Chronopost ou de réessayer plus tard",module,Chronopost_Chronorelais
+"%1 shipping labels have been cancelled.","%1 étiquettes de transport ont bien été annulées.",module,Chronopost_Chronorelais
+"%1 shipping label has been cancelled.","%1 étiquette de transport a bien été annulée.",module,Chronopost_Chronorelais
+"%1 return shipping labels have been cancelled.","%1 étiquettes de retour transport ont bien été annulées.",module,Chronopost_Chronorelais
+"%1 return shipping label has been cancelled.","%1 étiquette de retour transport a bien été annulée.",module,Chronopost_Chronorelais
+"Please enter a title for the tracking","Veuillez saisir un titre pour le tracking",module,Chronopost_Chronorelais
+"The parcels have been imported","Les colis ont bien été importés",module,Chronopost_Chronorelais
+"Please select a file","Veuillez choisir un fichier",module,Chronopost_Chronorelais
+"The line format %1 is invalid","Le format de la ligne %1 est invalide",module,Chronopost_Chronorelais
+"The order %1 does not exist","La commande %1 n'existe pas",module,Chronopost_Chronorelais
+"The shipment with the number %1 has been created for order %2","L'expédition avec le numéro %1 a été créée pour la commande %2",module,Chronopost_Chronorelais
+"Check my login details","Vérifier mes identifiants",module,Chronopost_Chronorelais
+"Date","Date",module,Chronopost_Chronorelais
+"Time","Heure",module,Chronopost_Chronorelais
+"Reset","Reset",module,Chronopost_Chronorelais
+"Import","Importer",module,Chronopost_Chronorelais
+"Import a list of parcel numbers","Importer une liste de numéros de colis",module,Chronopost_Chronorelais
+"Tracking title","Titre tracking",module,Chronopost_Chronorelais
+"Chronopost - Chronopost express home deliveries","Chronopost - Chronopost livraison express à domicile",module,Chronopost_Chronorelais
+"Import file","Fichier import",module,Chronopost_Chronorelais
+"Line format: Order_id","Format ligne : Order_id,Numéro de tracking",module,Chronopost_Chronorelais
+"You can't create a shipment.","Vous ne pouvez pas créer d'expédition",module,Chronopost_Chronorelais
+"Returns are not available for the delivery option %1","Les retours ne sont pas disponibles pour le mode de livraison %1",module,Chronopost_Chronorelais
+"Returns are only available for France","Les retours sont disponibles uniquement pour la France",module,Chronopost_Chronorelais
+"Please select an appointment date","Veuillez sélectionner une date de rendez-vous",module,Chronopost_Chronorelais
+"Select a pick-up point","Veuilez sélectionner un point relais",module,Chronopost_Chronorelais
+"After-sales return","Retour SAV",module,Chronopost_Chronorelais
+"Delivery by appointment:","Livraison sur rendez-vous :",module,Chronopost_Chronorelais
+"Pick-up point:","Point Relais :",module,Chronopost_Chronorelais
+"Select a date and a time slot below:","Sélectionnez une date et un créneau horaire ci-dessous :",module,Chronopost_Chronorelais
+"not available","non disponible",module,Chronopost_Chronorelais
+"Loading map...","Chargement de la map...",module,Chronopost_Chronorelais
+"Please select one of the %1 Pickup Points affich&eacute;s below to which the parcel will be delivered.","Veuillez choisir parmi les %1 relais Pickup affich&eacute;s ci-dessous celui qui servira d'adresse de livraison.",module,Chronopost_Chronorelais
+"The nearest pick-up points","Les points relais les plus proches",module,Chronopost_Chronorelais
+"Mrs.","Madame",module,Chronopost_Chronorelais
+"Miss","Mademoiselle",module,Chronopost_Chronorelais
+"Mr","Monsieur",module,Chronopost_Chronorelais
+"Monday","Monday",module,Chronopost_Chronorelais
+"Tuesday","Tuesday",module,Chronopost_Chronorelais
+"Wednesday","Wednesday",module,Chronopost_Chronorelais
+"Thursday","Thursday",module,Chronopost_Chronorelais
+"Friday","Friday",module,Chronopost_Chronorelais
+"Saturday","Saturday",module,Chronopost_Chronorelais
+"Sunday","Sunday",module,Chronopost_Chronorelais
+"LF","LF",module,Chronopost_Chronorelais
+"CR","CR",module,Chronopost_Chronorelais
+"CR+LF","CR+LF",module,Chronopost_Chronorelais
+"ISO-8859-1","ISO-8859-1",module,Chronopost_Chronorelais
+"UTF-8","UTF-8",module,Chronopost_Chronorelais
+"ASCII-7 Bits","ASCII-7 Bits",module,Chronopost_Chronorelais
+"None","Aucun",module,Chronopost_Chronorelais
+"Simple quote","Simple quote",module,Chronopost_Chronorelais
+"Double quotes","Double quotes",module,Chronopost_Chronorelais
+".txt",".txt",module,Chronopost_Chronorelais
+".csv",".csv",module,Chronopost_Chronorelais
+".chr",".chr",module,Chronopost_Chronorelais
+"Semicolon","Point virgule",module,Chronopost_Chronorelais
+"Comma","Virgule",module,Chronopost_Chronorelais
+"Print PDF laser with proof","Impression A4 PDF avec preuve de dépôt",module,Chronopost_Chronorelais
+"Print PDF laser without proof","Impression A4 PDF sans preuve de dépôt",module,Chronopost_Chronorelais
+"Print PDF thermal","Impression PDF thermique",module,Chronopost_Chronorelais
+"Percentage (%)","Pourcentage (%)",module,Chronopost_Chronorelais
+"Amount (€)","Montant (€)",module,Chronopost_Chronorelais
+"Shipment address","Adresse d'expedition",module,Chronopost_Chronorelais
+"Invoicing address","Adresse de facturation",module,Chronopost_Chronorelais
+"Return address","Adresse de retour",module,Chronopost_Chronorelais
+"Kilogram","Kilogramme",module,Chronopost_Chronorelais
+"Gram","Gramme",module,Chronopost_Chronorelais
+"Product weight exceeds maximum weight","Poids d'un produit > au poids max",module,Chronopost_Chronorelais
+"WS chronorelais is not responding","WS chronorelais ne répond pas",module,Chronopost_Chronorelais
+"Method %s (\%s\"") not present in the contract""","Méthode %s (\%s\"") non présente dans le contrat""",module,Chronopost_Chronorelais
+"Method %s present in the contract","Méthode %s bien présente dans le contrat",module,Chronopost_Chronorelais
+"No price found","Pas de prix trouvé",module,Chronopost_Chronorelais
+"No price found in the list Basket weight exceed maximum list weight","Pas de prix trouvé dans la grille. Le poids du panier est > au poids max de la grille",module,Chronopost_Chronorelais
+"cut-off time exceeded: actual time: %s, maximum time: %s","heure limite dépassée : heure courante : %s, heure max : %s",module,Chronopost_Chronorelais
+"On","Le",module,Chronopost_Chronorelais
+"between %1 and %2","entre %1 et %2",module,Chronopost_Chronorelais
+"On %1 between %2 and %3","Le %1 entre %2 et %3",module,Chronopost_Chronorelais
+"chronorelais","chronorelais",module,Chronopost_Chronorelais
+"Account No.","N° de compte",module,Chronopost_Chronorelais
+"Sub-account No.","N° de sous compte",module,Chronopost_Chronorelais
+"Password","Mot de passe",module,Chronopost_Chronorelais
+"Version 2 of the Google Maps JavaScript API has officially deprecated. Please use Version 3 of the API from now on. Get the API key at https://code.google.com/apis/console/.","L'API Google Maps JavaScript Version 2 a été officiellement dépréciée. Vous devez utiliser l'API v3 désormais. Obtenez votre clef d'API sur https://code.google.com/apis/console/.",module,Chronopost_Chronorelais
+"Tracking URL","URL de suivi",module,Chronopost_Chronorelais
+"For the English version, put 'en' instead of 'fr' in the URL","Pour la langue anglaise, remplacer 'fr' par 'en' dans l'url",module,Chronopost_Chronorelais
+"GS path","Chemin GS",module,Chronopost_Chronorelais
+"Path for accessing the gs (Ghostscript) command","Chemin d'accès à la commande gs (Ghostscript)",module,Chronopost_Chronorelais
+"Extension","Extension",module,Chronopost_Chronorelais
+"Charset","Charset",module,Chronopost_Chronorelais
+"Line ending","Fin de ligne",module,Chronopost_Chronorelais
+"Delimiter","Délimiteur",module,Chronopost_Chronorelais
+"Separator","Séparateur",module,Chronopost_Chronorelais
+"Default title","Titre par défaut",module,Chronopost_Chronorelais
+"Send an e-mail","Envoyer un e-mail",module,Chronopost_Chronorelais
+"This value can be modified in the import form","Cette valeur peut être modifiée dans le formulaire d'import",module,Chronopost_Chronorelais
+"Send a shipment confirmation to the customer","Envoyer une confirmation d'expédition au client",module,Chronopost_Chronorelais
+"Comment","Commentaire",module,Chronopost_Chronorelais
+"Internal comment, can be left blank","Commentaire interne, peut être vide",module,Chronopost_Chronorelais
+"Include the comment in the e-mail","Inclure le commentaire dans l'e-mail",module,Chronopost_Chronorelais
+"Sender's information for printouts","Information de l'expéditeur pour les impressions",module,Chronopost_Chronorelais
+"Sender Title","Expéditeur Civilité",module,Chronopost_Chronorelais
+"Sender Name","Expéditeur Nom",module,Chronopost_Chronorelais
+"Sender Name 2","Expéditeur Nom2",module,Chronopost_Chronorelais
+"Address 1","Adresse 1",module,Chronopost_Chronorelais
+"Address 2","Adresse 2",module,Chronopost_Chronorelais
+"optional","optionnelle",module,Chronopost_Chronorelais
+"Postcode","Code postal",module,Chronopost_Chronorelais
+"Town/City","Ville",module,Chronopost_Chronorelais
+"Country","Pays",module,Chronopost_Chronorelais
+"Contact name","Nom contact",module,Chronopost_Chronorelais
+"E-mail","Email",module,Chronopost_Chronorelais
+"Telephone","Téléphone",module,Chronopost_Chronorelais
+"Mobile","Mobile",module,Chronopost_Chronorelais
+"Chronopost customer information for printouts","Information du client Chronopost pour les impressions",module,Chronopost_Chronorelais
+"Return address","Adresse de retour",module,Chronopost_Chronorelais
+"Name","Nom",module,Chronopost_Chronorelais
+"Name 2","Nom2",module,Chronopost_Chronorelais
+"Printing settings","Paramètres d'impression",module,Chronopost_Chronorelais
+"Mode","Mode",module,Chronopost_Chronorelais
+"Unit of weight","Unité de poids",module,Chronopost_Chronorelais
+"Letterbox option","Option de dépôt en boite aux lettres",module,Chronopost_Chronorelais
+"Activate the Chronopost letterbox option","Activer l'option de dépôt en boite aux lettres de Chronopost",module,Chronopost_Chronorelais
+"Check this option is listed in your contract. This option does not apply to Chronofresh.","Vérifiez que cette option figure dans votre contrat. Cette option ne s'applique pas à Chronofresh.",module,Chronopost_Chronorelais
+"Ad valorem insurance","Assurance Ad Valorem",module,Chronopost_Chronorelais
+"Active","Activer",module,Chronopost_Chronorelais
+"Minimum amount to insure","Montant minimum à assurer",module,Chronopost_Chronorelais
+"Saturday option","Option samedi",module,Chronopost_Chronorelais
+"Saturday option activated from","Option samedi activée du",module,Chronopost_Chronorelais
+"To","Au",module,Chronopost_Chronorelais
+"Return option","Option retour",module,Chronopost_Chronorelais
+"Pricing configuration","Configuration des tarifs",module,Chronopost_Chronorelais
+"Corsica supplement","Supplément pour la corse",module,Chronopost_Chronorelais
+"After-sales return address","Adresse de retour SAV",module,Chronopost_Chronorelais
+"Chronopost","Chronopost",module,Chronopost_Chronorelais
+"Saturday delivery","Livraison le samedi",module,Chronopost_Chronorelais
+"Chronopost C10","Chronopost C10",module,Chronopost_Chronorelais
+"Chronopost C18","Chronopost C18",module,Chronopost_Chronorelais
+"Chrono Express","Chrono Express",module,Chronopost_Chronorelais
+"Chronopost SAMEDAY","Chronopost SAMEDAY",module,Chronopost_Chronorelais
+"Disable after","Désactiver après",module,Chronopost_Chronorelais
+"This method will be disabled after the selected time. If it does not work check the Timezone under general settings.","Cette méthode sera désactivée après l'heure sélectionnée. Si cela ne fonctionne pas vérifiez le Timezone dans la configuration générale.",module,Chronopost_Chronorelais
+"Chrono Relais","Chrono Relais",module,Chronopost_Chronorelais
+"Show Map","Afficher la carte",module,Chronopost_Chronorelais
+"Maximum search radius","Rayon max de recherche",module,Chronopost_Chronorelais
+"Chrono Relais Europe","Chrono Relais Europe",module,Chronopost_Chronorelais
+"ChronoPrecise","ChronoPrecise",module,Chronopost_Chronorelais
+"Appointment configuration","Configuration RDV",module,Chronopost_Chronorelais
+"Chronopost Classic","Chronopost Classic",module,Chronopost_Chronorelais
+"Title","Titre",module,Chronopost_Chronorelais
+"Delivery option","Méthode de livraison",module,Chronopost_Chronorelais
+"Weight limit","Limite de poids",module,Chronopost_Chronorelais
+"In Kg","En Kg",module,Chronopost_Chronorelais
+"Weight/price list","Grille poids/prix",module,Chronopost_Chronorelais
+"Quickcost","Quickcost",module,Chronopost_Chronorelais
+"Value to be added to quickcost","Valeur à ajouter au quickcost",module,Chronopost_Chronorelais
+"Type of value to be added","Type de valeur à ajouter",module,Chronopost_Chronorelais
+"Quickcost URL","Quickcost URL",module,Chronopost_Chronorelais
+"Free delivery depending on the amount","Livraison gratuite en fonction du montant",module,Chronopost_Chronorelais
+"Minimum amount to qualify for free delivery","Montant minimum pour livraison gratuite",module,Chronopost_Chronorelais
+"Handling fee","Frais de dossier",module,Chronopost_Chronorelais
+"Processing fee","Frais de traitement",module,Chronopost_Chronorelais
+"Logo URL","URL du logo",module,Chronopost_Chronorelais
+"Submit your image via FTP in the folder pub/media/chronorelais (create this folder if it does not exist)","Déposer votre image via FTP dans le dossier pub/media/chronorelais (créer ce dossier s'il n'existe pas)",module,Chronopost_Chronorelais
+"Debug","Debug",module,Chronopost_Chronorelais
+"Ship to Applicable Countries","Autoriser pour les pays",module,Chronopost_Chronorelais
+"Ship to Specific Countries","Autoriser pour des pays spécifiques",module,Chronopost_Chronorelais
+"Sort Order","Sort Order",module,Chronopost_Chronorelais
+"Shipment","Expédition",module,Chronopost_Chronorelais
+"day","jour",module,Chronopost_Chronorelais
+"OR","OU",module,Chronopost_Chronorelais
+"Hour","Heure",module,Chronopost_Chronorelais
+"Add a time slot","Ajouter un créneaux",module,Chronopost_Chronorelais
+"Appointment","RDV",module,Chronopost_Chronorelais
+"Open","Ouvert",module,Chronopost_Chronorelais
+"Closed","Fermé",module,Chronopost_Chronorelais
+"Show prices","Afficher les tarifs",module,Chronopost_Chronorelais
+"Yes","Oui",module,Chronopost_Chronorelais
+"No","Non",module,Chronopost_Chronorelais
+"From","Du",module,Chronopost_Chronorelais
+"To","Au",module,Chronopost_Chronorelais
+"Remove appointment","Supprimer créneau",module,Chronopost_Chronorelais
+"Quantity ordered","Quantité total commandée",module,Chronopost_Chronorelais
+"Shipping method","Mode de livraison",module,Chronopost_Chronorelais
+"Delivery on Saturday","Livraison le samedi",module,Chronopost_Chronorelais
+"Delivery on Saturday (customer choice)","Livraison le samedi (choix client)",module,Chronopost_Chronorelais
+"Delivery on Saturday (admin value)","Livraison le samedi (valeur admin)",module,Chronopost_Chronorelais
+"Print slip","Imprimer le bordereau",module,Chronopost_Chronorelais
+"Export CSS Format","Exporter Format CSS",module,Chronopost_Chronorelais
+"Order's day","Jour de la commande",module,Chronopost_Chronorelais
+"Tariff level","Niveau tarifaire",module,Chronopost_Chronorelais
+"Parcel delivery date","Date de remise des colis",module,Chronopost_Chronorelais
+"Time slot closed","Créneaux qui devront être fermés",module,Chronopost_Chronorelais
+"Date from which the Appointment Option Seminar will be calculated","Date à partir duquel le semainier de l'option RDV sera calculé",module,Chronopost_Chronorelais
+"Do not forget to print the remittance slip in two copies, one must be delivered at the time of removal or deposit, the other is to be preserved. Both must be signed.","N'oubliez pas d'imprimer le bordereau de remise en deux exemplaires, un doit être remis lors de l'enlèvement ou du dépôt, l'autre est à conserver. Les deux doivent être signés.",module,Chronopost_Chronorelais
+"Update postcode","Changer mon code postal",module,Chronopost_Chronorelais
+"Next week","Semaine suivante",module,Chronopost_Chronorelais
+"Previous week","Semaine précédente",module,Chronopost_Chronorelais
+"Monday","Lundi",module,Chronopost_Chronorelais
+"Tuesday","Mardi",module,Chronopost_Chronorelais
+"Wednesday","Mercredi",module,Chronopost_Chronorelais
+"Thursday","Jeudi",module,Chronopost_Chronorelais
+"Friday","Vendredi",module,Chronopost_Chronorelais
+"Saturday","Samedi",module,Chronopost_Chronorelais
+"Sunday","Dimanche",module,Chronopost_Chronorelais
+"Cancel Labels","Annuler les étiquettes",module,Chronopost_Chronorelais
+"Are you sure you want cancel labels?","Etes-vous certain de vouloir annuler ces étiquettes ?",module,Chronopost_Chronorelais
+"Cancel Return Labels","Annuler les étiquettes de retour",module,Chronopost_Chronorelais
+"Are you sure you want to cancel these return labels?","Etes-vous certain de vouloir annuler ces étiquettes de retour ?",module,Chronopost_Chronorelais
+"Are you sure you want to cancel this return label?","Etes-vous certain de vouloir annuler cette étiquette de retour ?",module,Chronopost_Chronorelais
+"Print a new return label","Imprimer une nouvelle étiquette de retour",module,Chronopost_Chronorelais
+"Printing return labels","Impression des étiquettes de retour",module,Chronopost_Chronorelais
+"(Cancel)","(Annuler)",module,Chronopost_Chronorelais
+"SUMMARY SLIP","BORDEREAU RECAPITULATIF",module,Chronopost_Chronorelais
+"TRANSMITTER","EMETTEUR",module,Chronopost_Chronorelais
+"ACCOUNT NUMBER","NUMERO DE COMPTE",module,Chronopost_Chronorelais
+"NAME","NOM",module,Chronopost_Chronorelais
+"ADDRESS","ADRESSE",module,Chronopost_Chronorelais
+"ADDITIONAL ADDRESS","ADRESSE (SUITE)",module,Chronopost_Chronorelais
+"TOWN/CITY","VILLE",module,Chronopost_Chronorelais
+"POSTCODE","CODE POSTAL",module,Chronopost_Chronorelais
+"COUNTRY","PAYS",module,Chronopost_Chronorelais
+"TELEPHONE","TELEPHONE",module,Chronopost_Chronorelais
+"ACCOUNTING POST","POSTE COMPTABLE",module,Chronopost_Chronorelais
+"DETAIL OF SHIPMENTS","DETAIL DES ENVOIS",module,Chronopost_Chronorelais
+"TL Number","Num de LT",module,Chronopost_Chronorelais
+"Weight (kg)","Poids (kg)",module,Chronopost_Chronorelais
+"Weight","Poids",module,Chronopost_Chronorelais
+"Product Code","Code produit",module,Chronopost_Chronorelais
+"Insurance","Assurance",module,Chronopost_Chronorelais
+"SUMMARY","RESUME",module,Chronopost_Chronorelais
+"DESTINATION","DESTINATION",module,Chronopost_Chronorelais
+"UNIT","UNITE",module,Chronopost_Chronorelais
+"TOTAL WEIGHT (kg)","POIDS TOTAL (kg)",module,Chronopost_Chronorelais
+"NATIONAL","NATIONAL",module,Chronopost_Chronorelais
+"INTERNATIONAL","INTERNATIONAL",module,Chronopost_Chronorelais
+"TOTAL","TOTAL",module,Chronopost_Chronorelais
+"Well taken care of %1 package","Bien pris en charge %1 colis",module,Chronopost_Chronorelais
+"Client's signature","Signature du client",module,Chronopost_Chronorelais
+"Signature of Chronopost Messenger","Signature du Messager Chronopost",module,Chronopost_Chronorelais
+"One or several packages are above the weight limit (%1 kg)","Un ou plusieurs colis dépassent la limite de poids (%1 kg)",module,Chronopost_Chronorelais
+"One or several packages are above the size limit (%1 cm)","Un ou plusieurs colis dépassent la limite de taille (%1 cm)",module,Chronopost_Chronorelais
+"One or several packages are above the total (L+2H+2l) size limit (%1 cm)","Un ou plusieurs colis dépassent la limite globale (L+2H+2l) de taille (%1 cm)",module,Chronopost_Chronorelais
+"Order %1","Commande %1",module,Chronopost_Chronorelais
+"Contract","Contrat",module,Chronopost_Chronorelais
+"Contracts","Contrats",module,Chronopost_Chronorelais
+"Pick-up and automatic lockers","Point Relais et consignes automatiques",module,Chronopost_Chronorelais
+"Only Pick-up","Point Relais uniquement",module,Chronopost_Chronorelais
+"Drop-off configuration","Configuration affichage points relais",module,Chronopost_Chronorelais
+"Display mode for drop-offs","Mode d'affichage pour les points relais",module,Chronopost_Chronorelais
+"Used to display specific drop-off types to customers.","Utilisé lors de l'affichage des points relais aux clients.",module,Chronopost_Chronorelais
+"No price found in the grid. The weight of the basket is greater than the maximum weight of the grid","Pas de prix trouvé dans la grille. Le poids du panier est supérieur au poids max de la grille",module,Chronopost_Chronorelais
+"Default Contract","Contrat par défaut",module,Chronopost_Chronorelais
+"Sort Order","Ordre de tri",module,Chronopost_Chronorelais
+"No LT for the selected order(s).","Aucune LT pour les commande(s) selectionnée(s).",module,Chronopost_Chronorelais
+"%1: Chronopost return label","%1 : Etiquette de retour Chronopost",module,Chronopost_Chronorelais
+"Return labels are not available for this country: %1","Les étiquettes de retour ne sont pas disponibles pour ce pays : %1",module,Chronopost_Chronorelais
+"Purchase Date","Date d'achat",module,Chronopost_Chronorelais
+"Purchase Point","Magasin d'achat",module,Chronopost_Chronorelais
+"Shipment ID","ID de l'expédition",module,Chronopost_Chronorelais
+"Ship-to Name","Envoyé à",module,Chronopost_Chronorelais
+"Tracking","Suivie",module,Chronopost_Chronorelais
+"Width","Poids",module,Chronopost_Chronorelais
+"Height","Hauteur",module,Chronopost_Chronorelais
+"Length","Longueur",module,Chronopost_Chronorelais
+"Choose contract","Choisir un contrat",module,Chronopost_Chronorelais
+"Labels are correctly generated","Les étiquettes ont correctement été générées",module,Chronopost_Chronorelais
+"Shipping service was failed","Le service d'expédition a échoué",module,Chronopost_Chronorelais
+"View","Voir",module,Chronopost_Chronorelais
+"Display option to customer","Afficher l'option aux clients",module,Chronopost_Chronorelais
+"If the option is displayed to the customer, note that you are responsible of delays treatment. If not, the additional amount is not added to the final shipping amount and the option will be automatically activated if you print the label between the defined start time and end time.","Si l'option est affichée aux clients, veuillez noter que vous êtes responsable des délais de traitement. Si elle ne l'est pas, le coût additionnel ne sera pas ajouté aux coûts de transport finaux. De plus l'option sera automatiquement ajoutée si vous imprimez l'étiquette pendant la période définie ci-dessous."
+"Additionnal amount","Coût additionnel",module,Chronopost_Chronorelais
+"Adds an additional amount if the customer choose the option (It is only enabled if the option is displayed to the customer). Leave it empty for free amount.","Ajoute un coût additionnel si le client choisit l'option samedi (actif seulement si l'option d'affichage est activée). Laissez vide pour que cela soit gratuit.",module,Chronopost_Chronorelais
+"Defines if the option will be displayed to the customer (so when you will print the label, the option will be added or not depending on customer choice). If the display option is disabled, the saturday option will be automatically added to the label if you print it between these times.","Définit la période où l'option sera affichée aux client (si l'option d'affichage est activée) ou la période où l'option sera automatiquement ajoutée à la lettre de transport."
+"No price found","Pas de prix trouvé",module,Chronopost_Chronorelais
+"Add the Saturday delivery option: (%1)","Ajouter l'option de livraison le samedi : (%1)",module,Chronopost_Chronorelais
+"Free","Gratuit",module,Chronopost_Chronorelais
+"Number of packages","Nombre de colis",module,Chronopost_Chronorelais
+"It is possible to update the value via the drop-down list located at the top left of the grid.","Il est possible de modifier la valeur via la liste déroulante située en haut à gauche de la grille.",module,Chronopost_Chronorelais
+"If the option is not offered to the customer, the value is calculated from the delivery method and the time slot defined in the configurations. If an admin value is entered, this will take precedence.","Si l'option n'est pas proposée sur le site aux clients, la valeur dépends de la plage horaire définie dans les configurations à condition que l'option soit active sur la méthode de livraison. Si l'admin a forcé la valeur, celle-ci prends le dessus.",module,Chronopost_Chronorelais
+"customer choice","choix client",module,Chronopost_Chronorelais
+"value that is generated","valeur qui sera générée",module,Chronopost_Chronorelais
+"generated value","valeur générée",module,Chronopost_Chronorelais
+"admin value","valeur admin",module,Chronopost_Chronorelais
+"Please select your delivery method","Veuillez sélectionner votre mode de livraison",module,Chronopost_Chronorelais
+"Please fill in a column number containing the package number.","Veuillez renseigner un numéro de colonne contenant le numéro du colis.",module,Chronopost_Chronorelais
+"Please fill in a column number containing the order number.","Veuillez renseigner un numéro de colonne contenant le numéro de commande.",module,Chronopost_Chronorelais
+"The Saturday option has been forced for the order %1","L'option samedi a bien été forcée pour la commande %1",module,Chronopost_Chronorelais
+"The Saturday option is not available for order %1","L'option samedi n'est pas disponible pour la commande %1",module,Chronopost_Chronorelais
+"Option not available for this delivery method","Option non disponible pour cette méthode de livraison",module,Chronopost_Chronorelais
+"Returns are not available for this shipping method","Retour non disponible pour cette méthode de livraison",module,Chronopost_Chronorelais
+"An error occured during the label creation. Please check if this contract can edit labels for this carrier.","Une erreur s'est produite lors de la création de l'étiquette. Veuillez vérifier si ce contrat permet d'éditer des étiquettes pour ce transporteur.",module,Chronopost_Chronorelais
+"Weight of products greater than the maximum weight","Poids des produits supérieurs au poids max",module,Chronopost_Chronorelais
+"Generate","Générer",module,Chronopost_Chronorelais
+"Country id is required","L'ID pays est requis",module,Chronopost_Chronorelais
+"Line format: Order increment Id, tracking number","Format : Increment ID de la commande, numéro de tracking",module,Chronopost_Chronorelais
+"Number of packages:","Nombre de colis :",module,Chronopost_Chronorelais
+"Contract:","Contrat :",module,Chronopost_Chronorelais
+"Value to be insured:","Valeur à assurer :",module,Chronopost_Chronorelais
+"Weight and dimensions:","Poids et dimensions :",module,Chronopost_Chronorelais
+"Weight","Poids",module,Chronopost_Chronorelais
+"Width","Largeur",module,Chronopost_Chronorelais
+"Height","Hauteur",module,Chronopost_Chronorelais
+"Length","Longueur",module,Chronopost_Chronorelais
+"It is not possible to insure more than one package.","Il n'est pas possible d'assurer plusieurs colis.",module,Chronopost_Chronorelais
+"Customer Email","Email client",module,Chronopost_Chronorelais
+"Shipping Address","Adresse de livraison",module,Chronopost_Chronorelais
+"Billing Address","Adresse de facturation",module,Chronopost_Chronorelais
+"Customer Group","Groupe client",module,Chronopost_Chronorelais
+"Subtotal","Sous-total",module,Chronopost_Chronorelais
+"Payment Method","Méthode de paiement",module,Chronopost_Chronorelais
+"Shipping and Handling","Frais de port",module,Chronopost_Chronorelais
+"Status","Statut",module,Chronopost_Chronorelais
+"Grand Total (Base)","Total",module,Chronopost_Chronorelais
+"Grand Total (Purchased)","Total (payé)",module,Chronopost_Chronorelais
+"Bill-to Name","Nom de facturation",module,Chronopost_Chronorelais
+"Customer Name","Nom du client",module,Chronopost_Chronorelais
+"Total Refunded","Total remboursé",module,Chronopost_Chronorelais
+"Store: %1","Magasin : %1",module,Chronopost_Chronorelais
+"Chronopost: %1","Chronopost : %1",module,Chronopost_Chronorelais
+"The conversion is done automatically on generation","La conversion est faite automatiquement à la génération",module,Chronopost_Chronorelais
+"The Weight, Width, Length, Height and Expiration date columns should be displayed.","Les colonnes Poids, Largeur, Longueur, Hauteur et Date limite de consommation doivent être affichées.",module,Chronopost_Chronorelais
+"Manage my contracts","Gérer mes contrats",module,Chronopost_Chronorelais
+"Contract name","Nom du contrat",module,Chronopost_Chronorelais
+"Customer type","Type de client",module,Chronopost_Chronorelais
+"I'm a %1 customer","Je suis un client %1",module,Chronopost_Chronorelais
+"Check contract","Vérifier le contrat",module,Chronopost_Chronorelais
+"Delete contract","Supprimer le contrat",module,Chronopost_Chronorelais
+"Add contract","Ajouter un contrat",module,Chronopost_Chronorelais
+"The contract is valid.","Le contrat est valide.",module,Chronopost_Chronorelais
+"The contract is invalid.","Le contrat est invalide.",module,Chronopost_Chronorelais
+"The webservice is temporarily inaccessible. Please try again later.","Le webservice est momentanément inaccessible. Veuillez réessayer plus tard.",module,Chronopost_Chronorelais
+"An error has occurred.","Une erreur s'est produite.",module,Chronopost_Chronorelais
+"Civility","Civilité",module,Chronopost_Chronorelais
+"Clean Informations","Réinitialiser les informations",module,Chronopost_Chronorelais
+"Expiration date","Date limite de consommation",module,Chronopost_Chronorelais
+"Expiration date:","Date limite de consommation :",module,Chronopost_Chronorelais
+"Shipping date + X days. You cannot ship merchandise with an expiration date of less than 3 days.","Date de livraison + X jours. Vous ne pouvez pas expédier de marchandise dont la date limite de consommation est inférieure à 3 jours.",module,Chronopost_Chronorelais
+"Expiration delay","Délai de consommation",module,Chronopost_Chronorelais
+"Offers","Offres",module,Chronopost_Chronorelais
+"No","Non",module,Chronopost_Chronorelais
+"The offer is not available with the specified contract.","L'offre n'est pas disponible avec le contrat spécifié.",module,Chronopost_Chronorelais
+"The field is deactivated when the offer does not correspond to the type of customer or the selected contract.","Le champ est désactivé quand l'offre ne corresponds pas au type de client ou au contrat sélectionné.",module,Chronopost_Chronorelais
+"Contract not found for order %1","Contrat introuvable pour la commande %1",module,Chronopost_Chronorelais
+"You cannot ship merchandise with an expiration date of less than 3 days.","Vous ne pouvez expédier de marchandise dont la date limite de consommation est inférieure à 3 jours.",module,Chronopost_Chronorelais
+"Order %1: You cannot ship merchandise with an expiration date of less than 3 days.","Commande %1 : Vous ne pouvez expédier de marchandise dont la date limite de consommation est inférieure à 3 jours.",module,Chronopost_Chronorelais
+"The destination countries are determined from your contract but you can exclude them if you wish.","Les pays de destination sont déterminés à partir de votre contrat mais vous pouvez en exclure si vous le souhaitez."
+"Select a shipment","Sélectionnez une expédition"

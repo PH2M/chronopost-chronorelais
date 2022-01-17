@@ -1,0 +1,12 @@
+<?php /** @var \Chronopost\Chronorelais\Block\Adminhtml\Sales\Order\View\Info $block */ ?>
+
+<?php if ($block->hasOptionBAL()): ?>
+    <br/>
+    <p><strong><?= __('Letterbox option') ?></strong></p>
+<?php endif; ?>
+
+<?php if ($adValoremAmount = $block->getOrderAdValorem()): ?>
+    <br/>
+    <p><strong><?= __('Ad valorem insurance') ?></strong></p>
+    <?= $adValoremAmount; ?>
+<?php endif; ?>

@@ -1,0 +1,306 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <chronorelais>
+            <shipping>
+                <tracking_view_url><![CDATA[http://www.chronopost.fr/tracking-no-cms/suivi-page?langue=fr&listeNumerosLT={tracking_number}]]></tracking_view_url>
+                <customer_type>1</customer_type>
+            </shipping>
+            <export_css>
+                <file_extension>.chr</file_extension>
+                <file_charset>ASCII-7</file_charset>
+                <endofline_character>crlf</endofline_character>
+                <field_delimiter>none</field_delimiter>
+                <field_separator>;</field_separator>
+            </export_css>
+            <import>
+                <default_tracking_title>Chronopost - Chronopost livraison express à domicile</default_tracking_title>
+                <send_email>1</send_email>
+                <shipping_comment />
+                <include_comment>0</include_comment>
+            </import>
+            <shipperinformation>
+                <civility>M</civility>
+                <name>Chronopost SAS</name>
+                <address1>3 avenue Gallieni</address1>
+                <zipcode>94250</zipcode>
+                <city>Gentilly</city>
+                <country>FR</country>
+                <contactname>Centre de service Chronopost</contactname>
+                <email>demandez.a.chronopost@chronopost.fr</email>
+                <phone>0 825 885 866</phone>
+            </shipperinformation>
+            <customerinformation>
+                <civility>M</civility>
+                <name>Chronopost SAS</name>
+                <address1>3 avenue Gallieni</address1>
+                <zipcode>94250</zipcode>
+                <city>Gentilly</city>
+                <country>FR</country>
+                <contactname>Centre de service Chronopost</contactname>
+                <email>demandez.a.chronopost@chronopost.fr</email>
+                <phone>0 825 885 866</phone>
+            </customerinformation>
+            <returninformation>
+                <civility>M</civility>
+                <name>Chronopost SAS</name>
+                <address1>3 avenue Gallieni</address1>
+                <zipcode>94250</zipcode>
+                <city>Gentilly</city>
+                <country>FR</country>
+                <contactname>Centre de service Chronopost</contactname>
+                <email>demandez.a.chronopost@chronopost.fr</email>
+                <phone>0 825 885 866</phone>
+            </returninformation>
+            <saturday>
+                <startday>thursday:18:00</startday>
+                <endday>friday:15:00</endday>
+                <amount/>
+                <display_to_customer>0</display_to_customer>
+            </saturday>
+            <contracts>
+                <contracts>{"0":{"name":"Contrat Démonstration","number":"19869502","subAccount":"","pass":"255562"}}</contracts>
+            </contracts>
+            <libelles_gmap>
+                <horaires>Horaires</horaires>
+                <informations>Informations</informations>
+                <ferme>Fermé</ferme>
+                <lundi>Lun.</lundi>
+                <mardi>Mar.</mardi>
+                <mercredi>Mer.</mercredi>
+                <jeudi>Jeu.</jeudi>
+                <vendredi>Ven.</vendredi>
+                <samedi>Sam.</samedi>
+                <dimanche>Dim.</dimanche>
+            </libelles_gmap>
+            <skybillparam>
+                <mode>PDF</mode>
+            </skybillparam>
+            <expiration_date>
+                <expiration_delay>3</expiration_delay>
+            </expiration_date>
+        </chronorelais>
+        <carriers>
+            <chronopost>
+                <active>0</active>
+                <sallowspecific>1</sallowspecific>
+                <specificcountry>FR</specificcountry> <!-- liste des codes pays autorisés séparés par une virgule -->
+                <model>Chronopost\Chronorelais\Model\Carrier\Chronopost</model>
+                <name>Chronopost-Livraison express à domicile avant 13H</name>
+                <title>Chronopost</title>
+                <weight_limit>30</weight_limit>
+                <quickcost>0</quickcost>
+                <quickcost_url>https://www.chronopost.fr/quickcost-cxf/QuickcostServiceWS?wsdl</quickcost_url>
+                <logo_url>chronopost.png</logo_url>
+                <debug>0</debug>
+                <deliver_on_saturday>0</deliver_on_saturday>
+                <price>0</price>
+                <type>I</type>
+                <specificerrmsg>This shipping method is not available. To use this shipping method, please contact us.</specificerrmsg>
+            </chronopost>
+            <chronopostc10>
+                <active>0</active>
+                <sallowspecific>1</sallowspecific>
+                <specificcountry>FR</specificcountry> <!-- liste des codes pays autorisés séparés par une virgule -->
+                <model>Chronopost\Chronorelais\Model\Carrier\ChronopostC10</model>
+                <name>Chronopost-Livraison express à domicile avant 10H</name>
+                <title>Chronopost</title>
+                <weight_limit>30</weight_limit>
+                <quickcost>0</quickcost>
+                <quickcost_url>https://www.chronopost.fr/quickcost-cxf/QuickcostServiceWS?wsdl</quickcost_url>
+                <logo_url>chronopost.png</logo_url>
+                <debug>0</debug>
+                <deliver_on_saturday>0</deliver_on_saturday>
+                <price>0</price>
+                <type>I</type>
+                <specificerrmsg>This shipping method is not available. To use this shipping method, please contact us.</specificerrmsg>
+            </chronopostc10>
+            <chronopostc18>
+                <active>0</active>
+                <sallowspecific>1</sallowspecific>
+                <specificcountry>FR</specificcountry> <!-- liste des codes pays autorisés séparés par une virgule -->
+                <model>Chronopost\Chronorelais\Model\Carrier\ChronopostC18</model>
+                <name>Chronopost-Livraison express à domicile avant 18H</name>
+                <title>Chronopost</title>
+                <weight_limit>30</weight_limit>
+                <quickcost>0</quickcost>
+                <quickcost_url>https://www.chronopost.fr/quickcost-cxf/QuickcostServiceWS?wsdl</quickcost_url>
+                <logo_url>chronopost.png</logo_url>
+                <debug>0</debug>
+                <deliver_on_saturday>0</deliver_on_saturday>
+                <price>0</price>
+                <type>I</type>
+                <specificerrmsg>This shipping method is not available. To use this shipping method, please contact us.</specificerrmsg>
+            </chronopostc18>
+            <chronoexpress>
+                <active>0</active>
+                <sallowspecific>1</sallowspecific>
+                <specificcountry>DE,BE,BG,CY,DK,ES,EE,FI,GR,IE,IT,LV,LT,MT,NL,PL,PT,CZ,RO,SK,AT,HU,LU,GB,SI,SE,GF,YT,GP,MQ,RE</specificcountry> <!-- liste des codes pays autorisés séparés par une virgule -->
+                <model>Chronopost\Chronorelais\Model\Carrier\Chronoexpress</model>
+                <name>Chronopost Livraison express partout dans le monde</name>
+                <title>Chronopost</title>
+                <weight_limit>30</weight_limit>
+                <quickcost>0</quickcost>
+                <quickcost_url>https://www.chronopost.fr/quickcost-cxf/QuickcostServiceWS?wsdl</quickcost_url>
+                <logo_url>chronopost.png</logo_url>
+                <debug>0</debug>
+                <price>0</price>
+                <type>I</type>
+                <specificerrmsg>This shipping method is not available. To use this shipping method, please contact us.</specificerrmsg>
+            </chronoexpress>
+            <chronosameday>
+                <active>0</active>
+                <sallowspecific>1</sallowspecific>
+                <specificcountry>FR</specificcountry> <!-- liste des codes pays autorisés séparés par une virgule -->
+                <model>Chronopost\Chronorelais\Model\Carrier\ChronopostSameday</model>
+                <name>Chronopost-Livraison express à domicile le même jour</name>
+                <title>Chronopost</title>
+                <weight_limit>30</weight_limit>
+                <quickcost>0</quickcost>
+                <quickcost_url>https://www.chronopost.fr/quickcost-cxf/QuickcostServiceWS?wsdl</quickcost_url>
+                <logo_url>chronopost.png</logo_url>
+                <debug>0</debug>
+                <deliver_on_saturday>0</deliver_on_saturday>
+                <price>0</price>
+                <type>I</type>
+                <specificerrmsg>This shipping method is not available. To use this shipping method, please contact us.</specificerrmsg>
+                <delivery_time_limit>15:00</delivery_time_limit>
+            </chronosameday>
+            <chronorelais>
+                <active>0</active>
+                <sallowspecific>1</sallowspecific>
+                <specificcountry>FR</specificcountry> <!-- liste des codes pays autorisés séparés par une virgule -->
+                <model>Chronopost\Chronorelais\Model\Carrier\Chronorelais</model>
+                <name>Chrono Relais : livraison express en relais Pickup</name>
+                <title>Chronopost</title>
+                <weight_limit>20</weight_limit>
+                <quickcost>0</quickcost>
+                <quickcost_url>https://www.chronopost.fr/quickcost-cxf/QuickcostServiceWS?wsdl</quickcost_url>
+                <logo_url>chronopost.png</logo_url>
+                <debug>0</debug>
+                <deliver_on_saturday>0</deliver_on_saturday>
+                <price>0</price>
+                <type>I</type>
+                <specificerrmsg>This shipping method is not available. To use this shipping method, please contact us.</specificerrmsg>
+                <show_map>0</show_map>
+                <max_distance_search>15</max_distance_search>
+                <max_point_chronopost>5</max_point_chronopost>
+                <point_relai_ws_method>recherchePointChronopost</point_relai_ws_method>
+                <add_address_to_ws>1</add_address_to_ws>
+                <can_change_postcode>1</can_change_postcode>
+            </chronorelais>
+            <chronorelaiseur>
+                <active>0</active>
+                <sallowspecific>1</sallowspecific>
+                <specificcountry>DE,AT,BE,BG,CY,DK,ES,EE,FI,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,CZ,RO,GB,SK,SI,SE</specificcountry> <!-- liste des codes pays autorisés séparés par une virgule -->
+                <model>Chronopost\Chronorelais\Model\Carrier\ChronorelaisEurope</model>
+                <name>Chrono Relai Europe : Livraison en point relais</name>
+                <title>Chronopost</title>
+                <weight_limit>20</weight_limit>
+                <quickcost>0</quickcost>
+                <quickcost_url>https://www.chronopost.fr/quickcost-cxf/QuickcostServiceWS?wsdl</quickcost_url>
+                <logo_url>chronopost.png</logo_url>
+                <debug>0</debug>
+                <deliver_on_saturday>0</deliver_on_saturday>
+                <price>0</price>
+                <type>I</type>
+                <specificerrmsg>This shipping method is not available. To use this shipping method, please contact us.</specificerrmsg>
+                <show_map>1</show_map>
+                <max_distance_search>15</max_distance_search>
+                <max_point_chronopost>10</max_point_chronopost>
+                <point_relai_ws_method>recherchePointChronopostInter</point_relai_ws_method>
+                <add_address_to_ws>0</add_address_to_ws>
+                <can_change_postcode>0</can_change_postcode>
+            </chronorelaiseur>
+            <chronorelaisdom>
+                <active>0</active>
+                <sallowspecific>1</sallowspecific>
+                <specificcountry>GP,MQ,GF,RE</specificcountry> <!-- liste des codes pays autorisés séparés par une virgule -->
+                <model>Chronopost\Chronorelais\Model\Carrier\ChronorelaisDom</model>
+                <name>Chrono Relais DOM : Livraison en point relais</name>
+                <title>Chronopost</title>
+                <weight_limit>20</weight_limit>
+                <quickcost>0</quickcost>
+                <quickcost_url>https://www.chronopost.fr/quickcost-cxf/QuickcostServiceWS?wsdl</quickcost_url>
+                <logo_url>chronopost.png</logo_url>
+                <debug>0</debug>
+                <deliver_on_saturday>0</deliver_on_saturday>
+                <price>0</price>
+                <type>I</type>
+                <specificerrmsg>This shipping method is not available. To use this shipping method, please contact us.</specificerrmsg>
+                <show_map>1</show_map>
+                <max_distance_search>15</max_distance_search>
+                <max_point_chronopost>10</max_point_chronopost>
+                <point_relai_ws_method>recherchePointChronopostInter</point_relai_ws_method>
+                <add_address_to_ws>1</add_address_to_ws>
+                <can_change_postcode>0</can_change_postcode>
+            </chronorelaisdom>
+            <chronopostsrdv>
+                <active>0</active>
+                <sallowspecific>1</sallowspecific>
+                <specificcountry>FR</specificcountry> <!-- liste des codes pays autorisés séparés par une virgule -->
+                <model>Chronopost\Chronorelais\Model\Carrier\ChronopostSrdv</model>
+                <name>Livraison sur Rendez-vous</name>
+                <title>Chronopost</title>
+                <weight_limit>30</weight_limit>
+                <quickcost>0</quickcost>
+                <quickcost_url>https://www.chronopost.fr/quickcost-cxf/QuickcostServiceWS?wsdl</quickcost_url>
+                <logo_url>chronopost.png</logo_url>
+                <debug>0</debug>
+                <price>0</price>
+                <type>I</type>
+                <specificerrmsg>This shipping method is not available. To use this shipping method, please contact us.</specificerrmsg>
+                <rdv_config>
+                    {
+                    "dateRemiseColis_nbJour": "1",
+                    "dateRemiseColis_jour": "0",
+                    "dateRemiseColis_heures": "0",
+                    "dateRemiseColis_minutes": "0",
+                    "niveauTarifaire_show": 1,
+                    "N1_status": "1",
+                    "N2_status": "1",
+                    "N3_status": "1",
+                    "N4_status": "1",
+                    "N1_price": "0",
+                    "N2_price": "0",
+                    "N3_price": "0",
+                    "N4_price": "0"
+                    }
+                </rdv_config>
+            </chronopostsrdv>
+            <chronocclassic>
+                <active>0</active>
+                <sallowspecific>1</sallowspecific>
+                <specificcountry>DE,BE,BG,CY,DK,ES,EE,FI,GR,IE,IT,LV,LT,MT,NL,PL,PT,CZ,RO,SK,AT,HU,LU,GB,SI,SE,GF,YT,GP,MQ,RE</specificcountry> <!-- liste des codes pays autorisés séparés par une virgule -->
+                <model>Chronopost\Chronorelais\Model\Carrier\ChronopostCClassic</model>
+                <name>Chronopost Livraison dans certaines villes Européennes</name>
+                <title>Chronopost</title>
+                <weight_limit>30</weight_limit>
+                <quickcost>0</quickcost>
+                <quickcost_url>https://www.chronopost.fr/quickcost-cxf/QuickcostServiceWS?wsdl</quickcost_url>
+                <logo_url>chronopost.png</logo_url>
+                <debug>0</debug>
+                <price>0</price>
+                <type>I</type>
+                <specificerrmsg>This shipping method is not available. To use this shipping method, please contact us.</specificerrmsg>
+            </chronocclassic>
+            <chronofresh>
+                <active>0</active>
+                <sallowspecific>1</sallowspecific>
+                <specificcountry>FR</specificcountry>
+                <model>Chronopost\Chronorelais\Model\Carrier\Chronofresh</model>
+                <name>Chronofresh - Livraison express à domicile avant 13H</name>
+                <title>Chronofresh</title>
+                <weight_limit>30</weight_limit>
+                <quickcost>0</quickcost>
+                <quickcost_url>https://www.chronopost.fr/quickcost-cxf/QuickcostServiceWS?wsdl</quickcost_url>
+                <logo_url>chronofresh.jpg</logo_url>
+                <debug>0</debug>
+                <price>0</price>
+                <type>I</type>
+                <specificerrmsg>This shipping method is not available. To use this shipping method, please contact us.</specificerrmsg>
+                <offers>fresh</offers>
+            </chronofresh>
+        </carriers>
+    </default>
+</config>

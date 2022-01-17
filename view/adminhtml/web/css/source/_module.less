@@ -1,0 +1,128 @@
+.data-grid {
+    .data-grid-th {
+        select {
+            color: #000;
+        }
+    }
+}
+
+.chronorelais-sales-impression {
+    .data-grid-actions-cell {
+        padding: 10px !important;
+    }
+
+    .data-grid-cell-content {
+        .expiration-date-container {
+            position: relative;
+        }
+
+        .input-text {
+            margin-bottom: 5px;
+            width: 50px;
+            text-align: center;
+
+            &.expiration-date {
+                width: 110px;
+                text-align: left;
+                height: 32px;
+            }
+        }
+
+        .weight-line {
+            width: 105px;
+            text-align: center;
+        }
+
+        #generate-label {
+            width: 75px;
+            padding: 5px;
+        }
+    }
+}
+
+.adminhtml-order-shipment-new,
+.adminhtml-order_shipment-new {
+    .input-chrono {
+        width: 75px;
+        margin: 0 5px 5px;
+
+        &.expiration-date {
+            width: 125px;
+        }
+    }
+
+    #ad_volorem_message {
+        margin-bottom: 20px;
+    }
+}
+
+.accordion {
+    .config {
+        .rdv_config {
+            select {
+                width: auto;
+                max-width: 100%;
+            }
+
+            a.add_creneau {
+                &:after {
+                    font-family: @icons-admin__font-name;
+                    content: @icon-plus__content; /* image + */
+                    font-size: 2rem;
+                    margin-left: 10px;
+                    vertical-align: middle;
+                }
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+
+            td.del_creneau_cell {
+                vertical-align: middle;
+
+                a.del_creneau {
+                    &:before {
+                        font-family: @icons-admin__font-name;
+                        content: @icon-delete__content; /* image corbeille */
+                        font-size: 2rem;
+                        color: #514943;
+                    }
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+
+                    span {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.adminhtml-system-config-edit {
+    .section-config {
+        .contract {
+            background-color: #f8f8f8;
+            padding: 10px 5px;
+        }
+
+        .form-value {
+            padding-bottom: 8px;
+        }
+    }
+}
+
+fieldset#chronorelais_contracts {
+    #container-contract {
+        div {
+            margin-bottom: 10px;
+        }
+
+        button {
+            margin-right: 10px;
+        }
+    }
+}

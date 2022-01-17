@@ -1,0 +1,76 @@
+<?php
+/** @var Contracts $block */
+
+use Chronopost\Chronorelais\Block\Adminhtml\System\Config\Contracts;
+
+$step = 0;
+?>
+
+<div id="main-container">
+    <?php $configContracts = $block->getConfigContracts(); ?>
+    <?php if ($configContracts === null) : ?>
+        <?php $configContracts = []; ?>
+    <?php endif; ?>
+
+    <?php foreach ($configContracts as $contract): ?>
+        <div class="container-contract item-<?= $step; ?>" id="container-contract">
+            <div>
+                <span class="label">
+                    <label for="chronorelais_shipping_account_name"><?= __('Contract name'); ?> :</label>
+                </span>
+                <input id="chronorelais_shipping_account_name" class="contractfield contract_name input-text"
+                       type="text" value="<?= $contract['name'] ?? '' ?>"/>
+            </div>
+            <div>
+                <span class="label">
+                    <label for="chronorelais_shipping_account_number"><?= __('Account No.'); ?> :</label>
+                </span>
+                <input id="chronorelais_shipping_account_number" class="contractfield contract_number input-text"
+                       type="text" value="<?= $contract['number'] ?? '' ?>"/>
+            </div>
+            <div>
+                <span class="label">
+                    <label for="chronorelais_shipping_sub_account_number"><?= __('Sub-account No.'); ?> :</label>
+                </span>
+                <input id="chronorelais_shipping_sub_account_number"
+                       class="contractfield contract_sub_account input-text" type="text"
+                       value="<?= $contract['subAccount'] ?? '' ?>"/>
+                <p class="note"><span></span></p>
+            </div>
+            <div>
+                <span class="label">
+                    <label for="chronorelais_shipping_account_pass"><?= __('Password'); ?> :</label>
+                </span>
+                <input id="chronorelais_shipping_account_pass" class="contractfield contract_pass input-text"
+                       type="text" value="<?= $contract['pass'] ?? '' ?>"/>
+            </div>
+            <button class="scalable checkContract" type="button" data-urlcheck="">
+                <span><?= $block->getLabelButtonCheck() ?></span>
+            </button>
+            <?php if ($step >= 1): ?>
+                <span>
+                    <button class="scalable deleteContract" type="button" id="<?= $step; ?>">
+                        <span><?= $block->getLabelButtonDelete() ?></span>
+                    </button>
+                </span>
+            <?php endif; ?>
+            <div id="validation_result"></div>
+        </div>
+        <?php $step++ ?>
+    <?php endforeach ?>
+</div>
+
+<button class="scalable createContract" type="button" style="margin-top:10px;">
+    <span><?= $block->getLabelButtonCreate() ?></span>
+</button>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Chronopost_Chronorelais/js/contracts":{
+                "ajaxUrl":"<?= $block->getAjaxUrl() ?>",
+                "labelDeleteButton":"<?= $block->getLabelButtonDelete() ?>"
+            }
+        }
+    }
+</script>

@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Chronopost_Chronorelais::css/leaflet/leaflet.css" />
+    </head>
+    <body>
+        <referenceBlock name="checkout.root">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="checkout" xsi:type="array">
+                            <item name="children" xsi:type="array">
+                                <item name="steps" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="shipping-step" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="step-config" xsi:type="array">
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="shipping-rates-validation" xsi:type="array">
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="chronopost-rates-validation" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Chronopost_Chronorelais/js/view/shipping-rates-validation</item>
+                                                                </item>
+                                                                <item name="chronopostc10-rates-validation" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Chronopost_Chronorelais/js/view/shipping-rates-validation</item>
+                                                                </item>
+                                                                <item name="chronopostc18-rates-validation" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Chronopost_Chronorelais/js/view/shipping-rates-validation</item>
+                                                                </item>
+                                                                <item name="chronoexpress-rates-validation" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Chronopost_Chronorelais/js/view/shipping-rates-validation</item>
+                                                                </item>
+                                                                <item name="chronosameday-rates-validation" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Chronopost_Chronorelais/js/view/shipping-rates-validation</item>
+                                                                </item>
+                                                                <item name="chronorelais-rates-validation" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Chronopost_Chronorelais/js/view/shipping-rates-validation</item>
+                                                                </item>
+                                                                <item name="chronorelaiseur-rates-validation" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Chronopost_Chronorelais/js/view/shipping-rates-validation</item>
+                                                                </item>
+                                                                <item name="chronorelaisdom-rates-validation" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Chronopost_Chronorelais/js/view/shipping-rates-validation</item>
+                                                                </item>
+                                                                <item name="chronopostsrdv-rates-validation" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Chronopost_Chronorelais/js/view/shipping-rates-validation</item>
+                                                                </item>
+                                                                <item name="chronocclassic-rates-validation" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Chronopost_Chronorelais/js/view/shipping-rates-validation</item>
+                                                                </item>
+                                                                <item name="chronofresh-rates-validation" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Chronopost_Chronorelais/js/view/shipping-rates-validation</item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                                <item name="shippingAddress" xsi:type="array">
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="shippingAdditional" xsi:type="array">
+                                                            <item name="component" xsi:type="string">uiComponent</item>
+                                                            <item name="displayArea" xsi:type="string">shippingAdditional</item>
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="chronopost_chronorelais_shipping_method_extend" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Chronopost_Chronorelais/js/view/checkout/shipping/chronopost</item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+
+                                <item name="sidebar" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <!-- Sidebar relay info -->
+                                        <item name="chronopost_chronorelais_sidebar_relais" xsi:type="array">
+                                            <item name="component" xsi:type="string">Chronopost_Chronorelais/js/view/checkout/sidebar/info_relais</item>
+                                            <item name="displayArea" xsi:type="string">shipping-information</item>
+                                        </item>
+                                        <!-- Sidebar appointment info -->
+                                        <item name="chronopost_chronorelais_sidebar_rdv" xsi:type="array">
+                                            <item name="component" xsi:type="string">Chronopost_Chronorelais/js/view/checkout/sidebar/info_rdv</item>
+                                            <item name="displayArea" xsi:type="string">shipping-information</item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

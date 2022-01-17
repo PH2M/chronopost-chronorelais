@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="img-src">
+            <values>
+                <value id="openstreetmap_tile_a" type="host">a.tile.openstreetmap.org</value>
+                <value id="openstreetmap_tile_b" type="host">b.tile.openstreetmap.org</value>
+                <value id="openstreetmap_tile_c" type="host">c.tile.openstreetmap.org</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>

@@ -1,0 +1,198 @@
+<?php
+/** @var Planning $block */
+
+use Chronopost\Chronorelais\Block\Planning;
+
+$planning = $block->getSlots();
+$slots = $planning->return->slotList;
+if (!$slots) {
+    return;
+}
+
+// Days code from WS : 1 = Monday, ... , 7 = Sunday
+
+$week = 0;
+$slotsSort = [];
+$distinctTimeSlots = [];
+$appointmentConfig = $block->getRdvConfig();
+
+if (!is_array($slots)) {
+    $slots = [$slots];
+}
+
+// Sort by hour and date
+foreach ($slots as $slot) {
+    $slot = (array)$slot;
+    $slotTime = str_pad($slot['startHour'], 2, '0', STR_PAD_LEFT) . 'h';
+    if ($slot['startMinutes']) {
+        $slotTime .= str_pad($slot['startMinutes'], 2, '0', STR_PAD_LEFT);
+    }
+
+    $slotTime .= ' - ';
+    $slotTime .= str_pad($slot['endHour'], 2, '0', STR_PAD_LEFT) . 'h';
+    if ($slot['endMinutes']) {
+        $slotTime .= str_pad($slot['endMinutes'], 2, '0', STR_PAD_LEFT);
+    }
+
+    if (!in_array($slotTime, $distinctTimeSlots)) {
+        $distinctTimeSlots[] = $slotTime;
+    }
+
+    // Sort by days
+    if (!isset($slotsSort[$slot['deliveryDate']])) {
+        $slotsSort[$slot['deliveryDate']] = [];
+    }
+
+    $slotsSort[$slot['deliveryDate']][$slotTime] = $slot;
+}
+
+sort($distinctTimeSlots);
+
+$slotsSortByWeek = array_chunk($slotsSort, 7, true);
+
+$ratePrice = $block->getCarrierBasePrice();
+for ($i = 1; $i <= 4; $i++) {
+    $appointmentConfig["N" . $i . "_price"] += $ratePrice;
+}
+?>
+
+<tr id="chronopost_srdv_planning_container" class="chronomap_container">
+    <td colspan="4">
+        <?php setlocale(LC_ALL, $block->getLocale() . '.UTF-8', 'fra'); ?>
+
+        <!-- Desktop -->
+        <div class="global-desktop" id="global-desktop">
+            <header class="rdvCarouselheader" id="rdvCarouselheader">
+                <nav>
+                    <span class="carousel-control prev inactive"></span>
+                    <span class="carousel-control next"></span>
+                </nav>
+            </header>
+            <div id="rdvCarousel">
+                <div id="rdvCarouselContent">
+                    <?php for ($i = 0; $i < count($slotsSortByWeek); $i++): ?>
+                        <?php $slotsSort = $slotsSortByWeek[$i]; ?>
+                        <section class="slide content" id="content<?php echo $i ?>">
+                            <table class="date-time" id="thead" width="100%">
+                                <thead>
+                                <tr class="date-row" id="date-row">
+                                    <th>&nbsp;</th>
+                                    <?php foreach ($slotsSort as $_day => $slots): ?>
+                                        <th scope="col" id="th_<?php echo substr($_day, 0, 10) ?>">
+                                            <?php
+                                            $_dateTime = new \DateTime($_day);
+                                            $_dateTime->setTime(12, 0, 0);
+                                            ?>
+                                            <?php echo strftime("%A <span>%d</span> %B",
+                                                $block->getTimestamp($_dateTime->getTimestamp())); ?>
+                                        </th>
+                                    <?php endforeach; ?>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php foreach ($distinctTimeSlots as $time): ?>
+                                    <tr>
+                                        <th class="time-cell" scope="row"><?php echo $time; ?></th>
+                                        <?php foreach ($slotsSort as $_day => $slots): ?>
+                                            <?php if (isset($slots[$time]) && $slots[$time]["status"] != "F"): ?>
+                                                <?php $slots[$time]['meshCode'] = $planning->return->meshCode; ?>
+                                                <?php $slots[$time]['transactionID'] = $planning->return->transactionID; ?>
+                                                <td>
+                                                    <label>
+                                                        <span>
+                                                            <input type="radio" name="shipping_method_chronopostsrdv"
+                                                                   class="shipping_method_chronopostsrdv"
+                                                                   value='<?php echo json_encode($slots[$time],
+                                                                       true) ?>'>
+                                                            <?php
+                                                            if ($appointmentConfig['niveauTarifaire_show'] == 1) {
+                                                                echo $block->currency($appointmentConfig[$slots[$time]['tariffLevel'] . "_price"]);
+                                                            }
+                                                            ?>
+                                                        </span>
+                                                    </label>
+                                                </td>
+                                            <?php else: ?>
+                                                <td class="unavailable">&nbsp;</td>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    </tr>
+                                <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </section>
+                    <?php endfor; ?>
+                </div>
+            </div> <!-- End #rdvCarousel -->
+        </div>
+
+        <!-- Mobile -->
+        <div class="global-mobile" id="global-mobile">
+            <header class="header">
+                <h1><?php __("Select a date and a time slot below:") ?></h1>
+                <div class="scroll">
+                    <table class="date-time">
+                        <tr class="date-row" id="date-row">
+                            <?php for ($i = 0; $i < count($slotsSortByWeek); $i++): ?>
+                                <?php $slotsSort = $slotsSortByWeek[$i]; ?>
+                                <?php foreach ($slotsSort as $_day => $slots): ?>
+                                    <th scope="col" id="th_<?php echo substr($_day, 0, 10) ?>">
+                                        <?php
+                                        $_dateTime = new DateTime($_day);
+                                        $_dateTime->setTime(12, 0, 0);
+                                        ?>
+                                        <?php echo strftime("%A <span>%d</span> %B",
+                                            $block->getTimestamp($_dateTime->getTimestamp())); ?>
+                                    </th>
+                                <?php endforeach; ?>
+                            <?php endfor; ?>
+                        </tr>
+                    </table>
+                </div>
+            </header>
+            <section class="content" id="content">
+                <div class="scroll-v" id="scroll-v">
+                    <div class="time-list" id="time-list">
+                        <?php for ($i = 0; $i < count($slotsSortByWeek); $i++): ?>
+                            <?php $slotsSort = $slotsSortByWeek[$i]; ?>
+
+                            <?php foreach ($slotsSort as $_day => $slots): ?>
+                                <ul id="ul_<?php echo substr($_day, 0, 10) ?>" style="display:none;">
+                                    <?php foreach ($distinctTimeSlots as $time): ?>
+                                        <?php if (isset($slots[$time])): ?>
+                                            <?php $slots[$time]['meshCode'] = $planning->return->meshCode; ?>
+                                            <?php $slots[$time]['transactionID'] = $planning->return->transactionID; ?>
+                                            <li>
+                                                <label>
+                                                    <span class="time-cell"><?php echo $time; ?></span>
+                                                    <span class="price-cell">
+                                                            <input type="radio" name="shipping_method_chronopostsrdv"
+                                                                   class="shipping_method_chronopostsrdv"
+                                                                   value='<?php echo json_encode($slots[$time],
+                                                                       true) ?>'>
+                                                        <?php
+                                                        if ($appointmentConfig['niveauTarifaire_show'] == 1) {
+                                                            echo $block->currency($appointmentConfig[$slots[$time]['tariffLevel'] . "_price"]);
+                                                        }
+                                                        ?>
+                                                        </span>
+                                                </label>
+                                            </li>
+                                        <?php else: ?>
+                                            <li class="unavailable">
+                                                <label>
+                                                    <span class="time-cell"><?php echo $time; ?></span>
+                                                    <span class="price-cell"><?php echo __("not available") ?></span>
+                                                </label>
+                                            </li>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endforeach; ?>
+                        <?php endfor; ?>
+                    </div>
+            </section>
+        </div>
+        <!-- End mobile -->
+    </td>
+</tr>

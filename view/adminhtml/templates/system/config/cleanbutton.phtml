@@ -1,0 +1,18 @@
+<?php
+/** @var CleanButton $block */
+
+use Chronopost\Chronorelais\Block\Adminhtml\System\Config\CleanButton;
+?>
+
+<button class="scalable chrono-clean-button" type="button" id="<?= $this->getHtmlId() ?>">
+    <span><?= $block->getLabelButtonCleanInformations() ?></span>
+</button>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Chronopost_Chronorelais/js/cleanInformations":{}
+        }
+    }
+
+</script>

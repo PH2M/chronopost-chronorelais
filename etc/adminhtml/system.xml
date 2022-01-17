@@ -1,0 +1,509 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <!-- Global configuration -->
+        <tab id="chronorelais" translate="label" sortOrder="350">
+            <label>Chronopost</label>
+        </tab>
+
+        <section id="chronorelais" translate="label" type="text" sortOrder="350" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Configuration</label>
+            <tab>chronorelais</tab>
+            <resource>Chronopost_Chronorelais::config_chronorelais</resource>
+
+            <group id="shipping" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="module_version" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Module version</label>
+                    <frontend_model>Chronopost\Chronorelais\Block\Adminhtml\System\Config\ModuleVersion</frontend_model>
+                </field>
+
+                <field id="customer_type" translate="label" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Customer type</label>
+                    <source_model>Chronopost\Chronorelais\Model\Config\Source\CustomerType</source_model>
+                </field>
+
+                <field id="tracking_view_url" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Tracking URL</label>
+                    <comment>For the English version, put 'en' instead of 'fr' in the URL</comment>
+                </field>
+            </group>
+
+            <group id="contracts" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Contracts</label>
+                <field id="contracts" translate="label" type="hidden" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Manage my contracts</label>
+                    <frontend_model>Chronopost\Chronorelais\Block\Adminhtml\System\Config\Contracts</frontend_model>
+                </field>
+            </group>
+
+            <group id="export_css" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Configuration Export CSS</label>
+                <field id="file_extension" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Extension</label>
+                    <source_model>Chronopost\Chronorelais\Model\Config\Source\FileExtension</source_model>
+                </field>
+                <field id="file_charset" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Charset</label>
+                    <source_model>Chronopost\Chronorelais\Model\Config\Source\FileCharset</source_model>
+                </field>
+                <field id="endofline_character" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Line ending</label>
+                    <source_model>Chronopost\Chronorelais\Model\Config\Source\EndOfLineCharacter</source_model>
+                </field>
+                <field id="field_delimiter" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Delimiter</label>
+                    <source_model>Chronopost\Chronorelais\Model\Config\Source\FileDelimiter</source_model>
+                </field>
+                <field id="field_separator" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Separator</label>
+                    <source_model>Chronopost\Chronorelais\Model\Config\Source\FileSeparator</source_model>
+                </field>
+            </group>
+
+            <group id="import" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Configuration Import</label>
+                <field id="default_tracking_title" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default title</label>
+                    <comment>This value can be modified in the import form</comment>
+                </field>
+                <field id="send_email" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send an e-mail</label>
+                    <comment>Send a shipment confirmation to the customer</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="shipping_comment" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Comment</label>
+                    <comment>Internal comment, can be left blank</comment>
+                </field>
+                <field id="include_comment" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Include the comment in the e-mail</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+            <group id="shipperinformation" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Sender's information for printouts</label>
+                <field id="civility" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sender Title</label>
+                    <source_model>Chronopost\Chronorelais\Model\Config\Source\Civility</source_model>
+                </field>
+                <field id="name" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sender Name</label>
+                </field>
+                <field id="name2" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sender Name 2</label>
+                </field>
+                <field id="address1" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Address 1</label>
+                </field>
+                <field id="address2" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Address 2</label>
+                    <comment>optional</comment>
+                </field>
+                <field id="zipcode" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Postcode</label>
+                </field>
+                <field id="city" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Town/City</label>
+                </field>
+                <field id="country" translate="label" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Country</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                </field>
+                <field id="contactname" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Contact name</label>
+                </field>
+                <field id="email" translate="label comment" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>E-mail</label>
+                    <comment>optional</comment>
+                </field>
+                <field id="phone" translate="label comment" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Telephone</label>
+                    <comment>optional</comment>
+                </field>
+                <field id="mobilephone" translate="label comment" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Mobile</label>
+                    <comment>optional</comment>
+                </field>
+                <field id="clean_informations" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Chronopost\Chronorelais\Block\Adminhtml\System\Config\CleanButton</frontend_model>
+                </field>
+            </group>
+
+            <group id="customerinformation" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Chronopost customer information for printouts</label>
+                <field id="civility" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sender Title</label>
+                    <source_model>Chronopost\Chronorelais\Model\Config\Source\Civility</source_model>
+                </field>
+                <field id="name" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sender Name</label>
+                </field>
+                <field id="name2" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sender Name 2</label>
+                </field>
+                <field id="address1" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Address 1</label>
+                </field>
+                <field id="address2" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Address 2</label>
+                    <comment>optional</comment>
+                </field>
+                <field id="zipcode" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Postcode</label>
+                </field>
+                <field id="city" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Town/City</label>
+                </field>
+                <field id="country" translate="label" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Country</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                </field>
+                <field id="contactname" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Contact name</label>
+                </field>
+                <field id="email" translate="label comment" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>E-mail</label>
+                    <comment>optional</comment>
+                </field>
+                <field id="phone" translate="label comment" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Telephone</label>
+                    <comment>optional</comment>
+                </field>
+                <field id="mobilephone" translate="label comment" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Mobile</label>
+                    <comment>optional</comment>
+                </field>
+                <field id="clean_informations" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Chronopost\Chronorelais\Block\Adminhtml\System\Config\CleanButton</frontend_model>
+                </field>
+            </group>
+
+            <group id="returninformation" translate="label" type="text" sortOrder="55" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Return address</label>
+                <field id="civility" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Civility</label>
+                    <source_model>Chronopost\Chronorelais\Model\Config\Source\Civility</source_model>
+                </field>
+                <field id="name" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Name</label>
+                </field>
+                <field id="name2" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Name 2</label>
+                </field>
+                <field id="address1" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Address 1</label>
+                </field>
+                <field id="address2" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Address 2</label>
+                    <comment>optional</comment>
+                </field>
+                <field id="zipcode" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Postcode</label>
+                </field>
+                <field id="city" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Town/City</label>
+                </field>
+                <field id="country" translate="label" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Country</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                </field>
+                <field id="contactname" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Contact name</label>
+                </field>
+                <field id="email" translate="label comment" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>E-mail</label>
+                    <comment>optional</comment>
+                </field>
+                <field id="phone" translate="label comment" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Telephone</label>
+                    <comment>optional</comment>
+                </field>
+                <field id="mobilephone" translate="label comment" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Mobile</label>
+                    <comment>optional</comment>
+                </field>
+                <field id="clean_informations" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Chronopost\Chronorelais\Block\Adminhtml\System\Config\CleanButton</frontend_model>
+                </field>
+            </group>
+
+            <group id="skybillparam" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Printing settings</label>
+                <field id="mode" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Mode</label>
+                    <source_model>Chronopost\Chronorelais\Model\Config\Source\PrintMode</source_model>
+                </field>
+            </group>
+
+            <group id="weightunit" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Unit of weight</label>
+                <field id="unit" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Unit of weight</label>
+                    <source_model>Chronopost\Chronorelais\Model\Config\Source\WeightUnit</source_model>
+                </field>
+            </group>
+
+            <group id="optionbal" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Letterbox option</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Activate the Chronopost letterbox option</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Check this option is listed in your contract. This option does not apply to Chronofresh.</comment>
+                </field>
+                <depends>
+                    <field id="chronorelais/shipping/customer_type">1</field>
+                </depends>
+            </group>
+
+            <group id="assurance" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Ad valorem insurance</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Active</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="amount" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Minimum amount to insure</label>
+                    <frontend_class>required-entry validate-number</frontend_class>
+                    <depends>
+                        <field id="*/*/enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="saturday" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Saturday option</label>
+                <field id="display_to_customer" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display option to customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If the option is displayed to the customer, note that you are responsible of delays treatment. If not, the additional amount is not added to the final shipping amount and the option will be automatically activated if you print the label between the defined start time and end time.</comment>
+                </field>
+                <field id="amount" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Additionnal amount</label>
+                    <frontend_class>validate-number</frontend_class>
+                    <comment>Adds an additional amount if the customer choose the option (It is only enabled if the option is displayed to the customer). Leave it empty for free amount.</comment>
+                </field>
+                <field id="startday" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Saturday option activated from</label>
+                    <frontend_model>Chronopost\Chronorelais\Block\Adminhtml\System\Config\Date</frontend_model>
+                    <backend_model>Chronopost\Chronorelais\Model\Config\Backend\Date</backend_model>
+                </field>
+                <field id="endday" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>To</label>
+                    <frontend_model>Chronopost\Chronorelais\Block\Adminhtml\System\Config\Date</frontend_model>
+                    <backend_model>Chronopost\Chronorelais\Model\Config\Backend\Date</backend_model>
+                    <comment>Defines if the option will be displayed to the customer (so when you will print the label, the option will be added or not depending on customer choice). If the display option is disabled, the saturday option will be automatically added to the label if you print it between these times.</comment>
+                </field>
+                <depends>
+                    <field id="chronorelais/shipping/customer_type">1</field>
+                </depends>
+            </group>
+
+            <group id="retour" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Return option</label>
+                <field id="defaultadress" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>After-sales return address</label>
+                    <source_model>Chronopost\Chronorelais\Model\Config\Source\Retour</source_model>
+                </field>
+            </group>
+
+            <group id="tarification" translate="label" type="text" sortOrder="115" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Pricing configuration</label>
+                <field id="corsica_supplement" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Corsica supplement</label>
+                    <frontend_class>validate-number</frontend_class>
+                </field>
+            </group>
+
+            <group id="libelles_gmap" translate="label" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Libellés des éléments de la Map</label>
+                <field id="horaires" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Libellé Horaires</label>
+                </field>
+                <field id="informations" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Libellé Informations</label>
+                </field>
+                <field id="ferme" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Libellé Fermé</label>
+                </field>
+                <field id="lundi" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Libellé Lundi</label>
+                </field>
+                <field id="mardi" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Libellé Mardi</label>
+                </field>
+                <field id="mercredi" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Libellé Mercredi</label>
+                </field>
+                <field id="jeudi" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Libellé Jeudi</label>
+                </field>
+                <field id="vendredi" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Libellé Vendredi</label>
+                </field>
+                <field id="samedi" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Libellé Samedi</label>
+                </field>
+                <field id="dimanche" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Libellé Dimanche</label>
+                </field>
+                <depends>
+                    <field id="chronorelais/shipping/customer_type">1</field>
+                </depends>
+            </group>
+
+            <group id="dropoff" translate="label" type="text" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Drop-off configuration</label>
+                <field id="mode" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display mode for drop-offs</label>
+                    <source_model>Chronopost\Chronorelais\Model\Config\Source\DropOffMode</source_model>
+                    <comment>Used to display specific drop-off types to customers.</comment>
+                </field>
+                <depends>
+                    <field id="chronorelais/shipping/customer_type">1</field>
+                </depends>
+            </group>
+
+            <group id="expiration_date" translate="label" type="text" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Expiration date</label>
+                <field id="expiration_delay" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Expiration delay</label>
+                    <frontend_class>required-entry validate-number</frontend_class>
+                    <comment>Shipping date + X days. You cannot ship merchandise with an expiration date of less than 3 days.</comment>
+                </field>
+                <depends>
+                    <field id="chronorelais/shipping/customer_type">2</field>
+                </depends>
+            </group>
+        </section>
+
+        <!-- Shipping methods -->
+        <section id="carriers">
+            <!-- CHRONOPOST -->
+            <group id="chronopost" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Chronopost</label>
+                <include path="Chronopost_Chronorelais::system/carrier_shared_field.xml" />
+                <field id="deliver_on_saturday" translate="label" type="select" sortOrder="1000" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Saturday delivery</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+            <!-- CHRONOPOST C10-->
+            <group id="chronopostc10" translate="label" type="text" sortOrder="210" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Chronopost C10</label>
+                <include path="Chronopost_Chronorelais::system/carrier_shared_field.xml" />
+                <field id="deliver_on_saturday" translate="label" type="select" sortOrder="1000" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Saturday delivery</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+            <!-- CHRONOPOST C18-->
+            <group id="chronopostc18" translate="label" type="text" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Chronopost C18</label>
+                <include path="Chronopost_Chronorelais::system/carrier_shared_field.xml" />
+                <field id="deliver_on_saturday" translate="label" type="select" sortOrder="1000" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Saturday delivery</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+            <!-- CHRONOEXPRESS -->
+            <group id="chronoexpress" translate="label" type="text" sortOrder="230" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Chrono Express</label>
+                <include path="Chronopost_Chronorelais::system/carrier_shared_field.xml" />
+            </group>
+
+            <!-- Chronosameday -->
+            <group id="chronosameday" translate="label" type="text" sortOrder="240" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Chronopost SAMEDAY</label>
+                <include path="Chronopost_Chronorelais::system/carrier_shared_field.xml" />
+                <field id="deliver_on_saturday" translate="label" type="select" sortOrder="1000" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Saturday delivery</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="delivery_time_limit" translate="label comment" type="select" sortOrder="1010" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Disable after</label>
+                    <source_model>Chronopost\Chronorelais\Model\Config\Source\SamedayTime</source_model>
+                    <comment>This method will be disabled after the selected time. If it does not work check the Timezone under general settings.</comment>
+                </field>
+            </group>
+
+            <!-- Chronorelais -->
+            <group id="chronorelais" translate="label" type="text" sortOrder="250" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Chrono Relais</label>
+                <include path="Chronopost_Chronorelais::system/carrier_shared_field.xml" />
+
+                <field id="show_map" translate="label" type="select" sortOrder="1000" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Map</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="max_distance_search" translate="label" type="text" sortOrder="1010" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Maximum search radius</label>
+                </field>
+            </group>
+
+            <!-- Chronorelais Europe -->
+            <group id="chronorelaiseur" translate="label" type="text" sortOrder="260" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Chrono Relais Europe</label>
+                <include path="Chronopost_Chronorelais::system/carrier_shared_field.xml" />
+
+                <field id="showmap" translate="label" type="select" sortOrder="1000" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Map</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="max_distance_search" translate="label" type="text" sortOrder="1010" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Maximum search radius</label>
+                </field>
+            </group>
+
+            <!-- Chronorelais DOM -->
+            <group id="chronorelaisdom" translate="label" type="text" sortOrder="270" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Chrono Relais DOM</label>
+                <include path="Chronopost_Chronorelais::system/carrier_shared_field.xml" />
+
+                <field id="show_map" translate="label" type="select" sortOrder="1000" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Map</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="max_distance_search" translate="label" type="text" sortOrder="1010" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Maximum search radius</label>
+                </field>
+            </group>
+
+            <!-- Chronopost RDV -->
+            <group id="chronopostsrdv" translate="label" type="text" sortOrder="280" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Chrono Precise</label>
+                <include path="Chronopost_Chronorelais::system/carrier_shared_field.xml" />
+
+                <field id="rdv_config" translate="label" type="text" sortOrder="1000" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Appointment configuration</label>
+                    <frontend_model>Chronopost\Chronorelais\Block\Adminhtml\System\Config\RdvConfig</frontend_model>
+                </field>
+            </group>
+
+            <!-- Chronopost CClassic -->
+            <group id="chronocclassic" translate="label" type="text" sortOrder="290" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Chronopost Classic</label>
+                <include path="Chronopost_Chronorelais::system/carrier_shared_field.xml" />
+            </group>
+
+            <!-- Chronofresh -->
+            <group id="chronofresh" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Chronofresh</label>
+                <include path="Chronopost_Chronorelais::system/carrier_shared_field.xml" />
+                <field id="offers" translate="label" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Offers</label>
+                    <source_model>Chronopost\Chronorelais\Model\Config\Source\ChronofreshOffers</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

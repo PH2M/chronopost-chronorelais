@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block name="weight.config" class="Chronopost\Chronorelais\Block\Adminhtml\System\Config\WeightConfig"
+                   before="-" template="Chronopost_Chronorelais::system/config/weight_config.phtml"/>
+            <block class="Chronopost\Chronorelais\Block\Adminhtml\Sales\Shipment\Ajax" name="chronopost_shipment_new"
+                   template="Chronopost_Chronorelais::sales/shipment/ajax.phtml" before="-"/>
+            <block name="refresh.offers" class="Magento\Framework\View\Element\Template"
+                   after="weight.config" template="Chronopost_Chronorelais::sales/refresh_offers.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

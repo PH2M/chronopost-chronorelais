@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+
+    <!-- save relais_id to order -->
+    <event name="sales_model_service_quote_submit_before">
+        <observer name="saveOrderRelaisId" instance="Chronopost\Chronorelais\Observer\saveOrderRelaisId"/>
+        <observer name="saveOrderRdvInfo" instance="Chronopost\Chronorelais\Observer\saveOrderRdvInfo"/>
+        <observer name="saveOrderSaturdayOption" instance="Chronopost\Chronorelais\Observer\saveOrderSaturdayOption"/>
+    </event>
+
+</config>

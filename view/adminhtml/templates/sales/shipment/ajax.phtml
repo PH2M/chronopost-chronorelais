@@ -1,0 +1,11 @@
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Chronopost_Chronorelais/js/shipmentNew":{
+                "url":"<?= $block->getDimensionsUrl() ?>",
+                "shippingmethod":"<?= $block->getOrder()->getShippingMethod() ?>",
+                "orderid":"<?= $block->getOrder()->getId() ?>"
+            }
+        }
+    }
+</script>

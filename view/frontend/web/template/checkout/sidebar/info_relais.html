@@ -1,0 +1,15 @@
+<!-- ko if: (address()) -->
+<div class="shipping-information-title">
+    <span data-bind="i18n: 'Pick-up point:'"></span>
+</div>
+<div class="shipping-information-content">
+    <strong data-bind="text: address().company"></strong> <br />
+    <!-- ko foreach: { data: address().street, as: 'streetLine' } -->
+        <!-- ko if: (streetLine) -->
+        <span data-bind="text: streetLine"></span><br />
+        <!-- /ko -->
+    <!-- /ko -->
+    <span data-bind="text: address().postcode"></span>
+    <span data-bind="text: address().city"></span>
+</div>
+<!-- /ko -->

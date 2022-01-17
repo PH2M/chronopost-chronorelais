@@ -1,0 +1,16 @@
+<?php
+/** @var Template $block */
+
+use Magento\Framework\View\Element\Template;
+
+$amountToDisplay = $block->getSaturdayAmount() ? '+' . $block->getSaturdayAmount() . $block->getCurrencySymbol() : __('Free');
+?>
+
+<tr id="saturday_container_<?= $block->getMethodCode() ?>" class="saturday_container">
+    <td colspan="4">
+        <div>
+            <input id="saturday_delivery" type="checkbox" name="saturday_delivery"/>
+            <label for="saturday_delivery"><?= __("Add the Saturday delivery option: (%1)", $amountToDisplay) ?></label>
+        </div>
+    </td>
+</tr>
