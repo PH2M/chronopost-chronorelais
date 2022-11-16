@@ -184,7 +184,7 @@
                 <specificerrmsg>This shipping method is not available. To use this shipping method, please contact us.</specificerrmsg>
                 <show_map>0</show_map>
                 <max_distance_search>15</max_distance_search>
-                <max_point_chronopost>5</max_point_chronopost>
+                <max_point_chronopost>10</max_point_chronopost>
                 <point_relai_ws_method>recherchePointChronopost</point_relai_ws_method>
                 <add_address_to_ws>1</add_address_to_ws>
                 <can_change_postcode>1</can_change_postcode>

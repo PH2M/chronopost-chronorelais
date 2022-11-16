@@ -470,7 +470,8 @@ abstract class AbstractChronopost extends AbstractCarrier implements CarrierInte
         }
 
         // Recovery of the price via the price list entered by the customer in BO
-        $config = trim($this->getConfigData('config'));
+        $config = $this->getConfigData('config') ? trim($this->getConfigData('config')) : '';
+
         if ($config) {
             try {
                 $fees = $this->getFeesConfig($config, $request->getDestCountryId(), $request->getDestPostcode());
