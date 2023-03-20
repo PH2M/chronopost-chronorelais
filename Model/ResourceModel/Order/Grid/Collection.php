@@ -95,7 +95,7 @@ class Collection extends GridCollection
                 [new \Zend_Db_Expr("if(isNull(" . $this->getTable('chronopost_order_export_status') . ".livraison_le_samedi) , '' , " . $this->getTable('chronopost_order_export_status') . ".livraison_le_samedi) as force_saturday_option_export")]
             )
             ->where($this->getTable('sales_order') . '.shipping_method LIKE "chrono%"')
-            ->where($this->getTable('sales_order') . ".status = 'processing' OR " . $this->getTable('sales_order') . ".status = 'complete'")
+            ->where($this->getTable('sales_order') . ".state = 'processing' OR " . $this->getTable('sales_order') . ".state = 'complete'")
             ->group('main_table.entity_id');
 
         $this->addFilterToMap('status', 'main_table.status');
