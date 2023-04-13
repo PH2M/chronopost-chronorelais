@@ -300,7 +300,7 @@ class Shipment extends AbstractHelper
                     $this->saveLtHistory(
                         (string)$shipment->getId(),
                         (string)$resultParcelValues[$ite]->skybillNumber,
-                        (float)$dimensions[$ite]['weight'],
+                        (float)$dimensions[$ite]['weight'] ?? 0,
                         $expedition->return->reservationNumber,
                         null,
                         $expirationDate
