@@ -294,7 +294,7 @@ class Shipment extends AbstractHelper
                     ];
 
                     if (!isset($dimensions[$ite])) {
-                        $dimensions[$ite] = $dimensions['weight'] ?? 0;
+                        $dimensions[$ite] = $dimensions['weight'] ?? ['weight' => 0];
                     }
 
                     $this->saveLtHistory(
